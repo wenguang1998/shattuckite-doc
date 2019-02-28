@@ -81,7 +81,7 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -112,6 +112,7 @@ htmlhelp_basename = 'shattuckitedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
+latex_engine='xelatex'
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
@@ -125,7 +126,12 @@ latex_elements = {
     # Additional stuff for the LaTeX preamble.
     #
     # 'preamble': '',
+    'fncychap' : '',
 
+    # Additional stuff for the LaTeX preamble.
+    #
+    'preamble': r'''\usepackage{ctex}
+    ''',
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
@@ -138,6 +144,7 @@ latex_documents = [
     (master_doc, 'shattuckite.tex', 'shattuckite Documentation',
      'CNLHC', 'manual'),
 ]
+
 
 
 # -- Options for manual page output ------------------------------------------

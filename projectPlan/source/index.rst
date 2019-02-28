@@ -8,16 +8,20 @@ shattuckite项目计划书
 
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 3
+   :numbered:
+   :caption: 开发计划
 
-.. contents:: 目录
+   plan/background
+   plan/constraint
+   plan/devplan
+   plan/risk
+   plan/others
 
-.. include:: background.rst
-.. include:: constraint.rst
-.. include:: devplan.rst
-.. include:: risk.rst
-.. include:: others.rst
+
+
+
+
 
 
 
