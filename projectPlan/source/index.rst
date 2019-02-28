@@ -18,6 +18,7 @@ shattuckite项目计划书
 
 .. include:: background.rst
 .. include:: devplan.rst
+.. include:: constraint.rst
 
 
 
