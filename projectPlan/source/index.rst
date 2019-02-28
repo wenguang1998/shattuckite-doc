@@ -16,7 +16,8 @@ shattuckite项目计划书
 
 
 
-.. include:: projectAnalysis.rst
+.. include:: background.rst
+.. include:: devplan.rst
 
 
 
