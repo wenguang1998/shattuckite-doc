@@ -13,12 +13,11 @@ shattuckite项目计划书
 
 .. contents:: 目录
 
-
-
-
 .. include:: background.rst
 .. include:: constraint.rst
 .. include:: devplan.rst
+.. include:: risk.rst
+.. include:: others.rst
 
 
 
