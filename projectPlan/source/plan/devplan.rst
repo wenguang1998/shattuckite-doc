@@ -4,7 +4,29 @@
 成员组织
 ************
 
-本次开发计划使用类似于主程序员小组的方式[#TODO 请添加交叉参考]进行小组组织。 组织结构如[#TODO 需要添加结构图]所示。
+本次开发计划使用类似主程序员小组的方式进行小组组织。 组织结构如下图所示。
+
+.. graphviz::
+
+   digraph foo {
+       label = "组织方式示意图";
+       nodesep=0.5
+       secretary[label="开发秘书",pos="0,0!"]
+       p1[label="主程序员"]
+       p2[label="备程序员"]
+       pt1[label="测试程序员1"]
+       pt2[label="测试程序员2"]
+       p1 -> secretary[headport=e];
+       p1 -> p2[tailport=e,headport=w];
+       p1 -> pt1;
+       p1 -> pt2;
+      {
+          rank=same;
+          secretary->p1[style=invis];
+        p1->p2[style=invis];
+      }
+   }
+
 
 各组员小组角色分配如下
 
