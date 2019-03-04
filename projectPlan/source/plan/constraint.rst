@@ -29,9 +29,9 @@
 嵌入式终端
 ==============
 
-考虑到本项目主要面向民用领域，部署 ``Vxworks`` 和 ``Power PC``的成本较高。此外，在于甲方负责人交流后得知，最终产品并不需要必须支持上述软硬件件平台。
+考虑到本项目主要面向民用领域，部署 ``Vxworks`` 和 ``Power PC`` 的成本较高。此外，在与甲方负责人交流后得知，最终产品并不需要必须支持上述软硬件件平台。
 
-本项目最终决定使用嵌入式`Linux`+`ARM`的组合作为嵌入式终端, 并计划将系统部署到 ``Cortex-A8``(基于Texas Instrument AM3354 Sitara  Processor)和 ``Cortex-A9``(基于Altera Cyclone V SOC FPGA)两个硬件平台。
+本项目最终决定使用嵌入式 ``Linux`` +  ``ARM`` 的组合作为嵌入式终端, 并计划将系统部署到 ``Cortex-A8`` (基于Texas Instrument AM3354 Sitara  Processor)和 ``Cortex-A9`` (基于Altera Cyclone V SOC FPGA)两个硬件平台。
 
 
 

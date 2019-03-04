@@ -19,21 +19,21 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'shattuckite'
+project = '项目计划书'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
 
 # The short X.Y version
-version = ''
+version = '0.0'
 # The full version, including alpha/beta/rc tags
-release = ''
+release = 'rc0.0'
 
 
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
-# needs_sphinx = '1.0'
+needs_sphinx = '1.8'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -129,6 +129,7 @@ latex_elements = {
     #
     # 'preamble': '',
     'fncychap' : '',
+    'extraclassoptions': 'openany,oneside' ,
 
     # Additional stuff for the LaTeX preamble.
     #
@@ -143,7 +144,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'shattuckite.tex', 'shattuckite Documentation',
+    (master_doc, 'shattuckite.tex', 'shattuckite 项目计划书',
      'CNLHC', 'manual'),
 ]
 
@@ -154,7 +155,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'shattuckite', 'shattuckite Documentation',
+    (master_doc, 'shattuckite', 'shattuckite 项目计划书',
      [author], 1)
 ]
 
@@ -165,8 +166,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'shattuckite', 'shattuckite Documentation',
-     author, 'shattuckite', 'One line description of project.',
+    (master_doc, 'shattuckite', 'shattuckite 项目计划书',
+     author, 'shattuckite', 'shattuckite 物联网开发框架',
      'Miscellaneous'),
 ]
 
