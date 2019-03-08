@@ -39,9 +39,7 @@ pipeline {
           git add -A;
           echo auto CI build  >/tmp/message;
           git commit -F /tmp/message;
-          if [ $(cd ..;git branch | grep \* | cut -d ' ' -f2) = "master" ];then
-            git push origin master;
-          fi
+          git push origin master;
           '''
         //需要手动删除。因为build产生的文件隶属于root用户组，jenkins用户无权删除。
         sh 'rm projectPlan/build -Rf;'
