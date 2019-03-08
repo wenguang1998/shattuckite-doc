@@ -39,3 +39,11 @@
 
 .. uml:: img/schedule.uml
     :scale: 250 %
+
+
+任务详情分配
+******************
+
+本项目使用 ``Github`` 的 ``issue`` 功能进行任务发布。 本节的内容为脚本自动生成。
+
+.. include:: ./issue.rst

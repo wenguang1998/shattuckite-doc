@@ -3,6 +3,9 @@ import os
 import re
 import subprocess
 import datetime
+import json
+import requests
+import m2r
 project = '项目计划书'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
@@ -40,6 +43,7 @@ plantuml_output_format = 'svg_obj'
 plantuml_latex_output_format = 'pdf'
 graphviz_output_format = 'svg'
 
+#######版本修订记录自动生成
 SHADOC_INDEX = '001'
 SHADOC_REGEX_PATTERN = re.compile(
     r"^commit(.*?)$\nAuthor:(.*?)$\nDate:(.*?)$\s+SHADOC-{0:s}\sDOC\sUPDATE\s+AUTHOR:(.*?)\s+CENSOR:(.*?)\s+NOTE:(.*?)$".format(SHADOC_INDEX), re.S | re.M)
@@ -70,6 +74,23 @@ for commit in SHADCommitList:
         commit['Censor'],
         commit['Note'])
 
+
+#####任务列表自动生成
+AutoTaskListMDBuf=''
+AutoTaskListTemplate='''### {title}
+
+成员:{smember}
+
+{body}
+'''
+with open('./plan/issue.rst','w',encoding='utf8') as rstfp:
+    issues=json.loads(requests.get('https://api.github.com/repos/buaaembeddedse/shattuckite-META/issues?state=all').text)
+    # issues=json.loads(fp.read())
+    for issue  in issues:
+        memberList=','.join([i['login'] for i in issue['assignees']])
+        AutoTaskListMDBuf+=AutoTaskListTemplate.format(**issue,smember=memberList)
+    
+    rstfp.write(m2r.convert(AutoTaskListMDBuf))
 
 latex_elements = {
     'papersize': 'a4paper',
@@ -117,9 +138,7 @@ latex_elements = {
 \hline
 小组名称 & \multicolumn{2}{l|}{lemon}     \\ \hline
 学号   & 姓名     & 本文档中主要承担的工作内容      \\ \hline
-     &        &                  \\ \hline
-     &        &                  \\ \hline
-     &        &                  \\ \hline
+     16231275&        刘瀚骋&    内容编写/内容审核/绘图/自动化工具编写              \\ \hline 
 \end{tabular}
 \end{table}
 \begin{table}[]

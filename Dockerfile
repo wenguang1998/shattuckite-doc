@@ -15,6 +15,8 @@ RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinx --
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinxcontrib-plantuml
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinx_rtd_theme
 RUN cd /opt;wget http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple m2r
+RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
 
 RUN git config --global user.email "cn_lhc@qq.com"
 RUN git config --global user.name "Jenkins-Bot"
