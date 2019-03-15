@@ -2,7 +2,4 @@
 -------------------------
 
 .. include:: ./intro.rstinc
-.. include:: ./sourceModel.rstinc
-.. include:: ./sinkModel.rstinc
-.. include:: ./phyModel.rstinc
-.. include:: ./dataflow.rstinc
+.. include:: ./classify.rstinc
