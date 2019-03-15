@@ -15,7 +15,13 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import re
+import subprocess
+import datetime
+import json
+import requests
+import m2r
 
 # -- Project information -----------------------------------------------------
 
@@ -24,9 +30,9 @@ copyright = '2019, CNLHC'
 author = 'CNLHC'
 
 # The short X.Y version
-version = ''
+version = '0.0'
 # The full version, including alpha/beta/rc tags
-release = ''
+release = release = re.sub('^v', '', os.popen('git describe').read().strip())
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,6 +40,11 @@ release = ''
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
+
+
+
+needs_sphinx = '1.8'
+
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -44,7 +55,13 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.githubpages',
+    'sphinx.ext.graphviz',
+    'sphinx.ext.autosectionlabel',
+    'sphinxcontrib.plantuml',
     'sphinx.ext.autosectionlabel'
+
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -104,13 +121,56 @@ html_static_path = ['_static']
 # html_sidebars = {}
 
 
-# -- Options for HTMLHelp output ---------------------------------------------
 
+#version update record autorealized
+SHADOC_INDEX = '002'
+SHADOC_REGEX_PATTERN = re.compile(
+    r"^commit(.*?)$\nAuthor:(.*?)$\nDate:(.*?)$\s+SHADOC-{0:s}\sDOC\sUPDATE\s+AUTHOR:(.*?)\s+CENSOR:(.*?)\s+NOTE:(.*?)$".format(SHADOC_INDEX), re.S | re.M)
+SHADCommitList = []
+
+with subprocess.Popen(['git', 'log', '--grep', 'SHADOC-{0:s} DOC UPDATE'.format(SHADOC_INDEX)], stdout=subprocess.PIPE) as proc:
+    result = (re.findall(SHADOC_REGEX_PATTERN, proc.stdout.read().decode()))
+    for i in result:  # type:str
+        res = {}
+        dateString  = re.sub('\+\d+', '', i[2]).rstrip().lstrip()
+        res['Hash'] = i[0].lstrip()
+        res['GithubAuthor'] = i[1].lstrip()
+        print(dateString)
+        res['Date'] = datetime.datetime.strptime(dateString, '%a %b %d %H:%M:%S %Y').strftime('%Y-%m-%d %H:%M')
+        res['Author'] = i[3].lstrip()
+        res['Censor'] = i[4].lstrip()
+        res['Note'] = i[5].lstrip()
+        with subprocess.Popen(['git', 'describe', res['Hash']], stdout=subprocess.PIPE) as proc2:
+            res['Version'] = proc2.stdout.read().decode()
+        SHADCommitList.append(res)
+
+RevHistoryLatexCell = ''
+for commit in SHADCommitList:
+    RevHistoryLatexCell += '\n{0:s}&      {1:s}&       {2:s}&     {3:s}&  {4:s}    \\\ \hline\n'.format(
+        commit['Version'],
+        commit['Date'],
+        commit['GithubAuthor'],
+        commit['Censor'],
+        commit['Note'])
+
+#########
+plantuml = 'java -jar /opt/plantuml.jar -charset UTF-8'
+plantuml_output_format = 'svg_obj'
+plantuml_latex_output_format = 'pdf'
+graphviz_output_format = 'svg'
+
+
+
+
+
+# -- Options for HTMLHelp output ---------------------------------------------
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'shattuckite-requirementsdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
+latex_engine = 'xelatex'
+
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
@@ -128,11 +188,59 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
+    'papersize': 'a4paper',
+    'fncychap': '',
+    'extraclassoptions': 'openany,oneside',
+    'maketitle': r'''\shattuckitemaketitle
+\newpage
+    ''',
+    'releasename': "版本",
+    'preamble': r'''\usepackage{ctex}
+\newcommand{\shattuckitemaketitle}{%
+\maketitle
+\makeMetaPage
+}
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\zihao{-0} Shattuckite-requirements \par}%
+    \vskip 1.5em%
+    {\zihao{-0} 需求文档 \par}
+    \vskip 5.5em%
+    {\large
+      \lineskip .5em%
+      \begin{tabular}[t]{c}%
+        \zihao{4}\@author
+      \end{tabular}\par}%
+    \vskip 1em%
+      {\heiti\zihao{4}\itshape\py@release \releaseinfo}\par
+    %{\large \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\makeatother
+
+\newcommand{\makeMetaPage}{
+\newpage
+\begin{table}[]
+\caption {\heiti 版本变更历史} \label{tab:title} 
+\centering
+\begin{tabular}{|l|p{2cm}|p{4cm}|l|p{5cm}|}
+\hline
+版本 & 提交日期 & 主要编制人 & 审核人 & 版本说明 \\ \hline
+'''+RevHistoryLatexCell+r'''
+\end{tabular}
+\end{table}
+\clearpage
+}'''
 }
 latex_documents = [
     (master_doc, 'shattuckite-requirements.tex', 'shattuckite-requirements Documentation',
      'CNLHC', 'manual'),
 ]
-
 
 todo_include_todos = True
