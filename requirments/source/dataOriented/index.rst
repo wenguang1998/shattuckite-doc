@@ -3,3 +3,4 @@
 
 .. include:: ./intro.rstinc
 .. include:: ./classify.rstinc
+.. include:: ./source.rstinc

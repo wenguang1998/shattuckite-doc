@@ -9,6 +9,7 @@ shattuckite 《需求文档》
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :numbered:
 
    intro
    userOriented/index
