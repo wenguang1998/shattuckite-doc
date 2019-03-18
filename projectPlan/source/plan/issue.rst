@@ -1,4 +1,185 @@
 
+非x86 平台测试环境搭建
+^^^^^^^^^^^^^^^^^^^^^^
+
+成员:Dicky35
+
+请使用 ``qemu`` 仿真非x86 体系结构的cpu，搭建测试环境。
+
+具体要求
+
+``50KPI`` qemu-docker 环境的搭建
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+继续修改 #7 中的\ ``Dockerfile``\ ，在其内部配置\ ``qemu``\ 环境
+
+``150KPI`` 建立\ ``qemu``\ 虚拟机
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+建立首个 ``qemu``\ 虚拟机，需要满足以下几点要求
+
+
+#. 基于\ ``Cortex-A9``\ 架构 
+#. 指令长度为64位
+#. 安装\ ``Debian``\ 系统
+
+注意建立\ ``Qemu``\ 过程中的一切静态文件(包括系统配置文件及虚拟磁盘文件)应当保存在宿主机而非Docker中，Docker容器应该通过VOLUME挂载的方式访问这些静态文件。
+
+该任务计200KPI
+
+该任务应当在 ``2019年3月22日24:00``\ 前完成
+
+《需求文档》绘制用户用例活动图
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+成员:wenguang1998
+
+请为 `shattuckite-doc <https://github.com/buaaembeddedse/shattuckite-doc/>`_ `/requirements/source/userOriented/cont.json <https://github.com/buaaembeddedse/shattuckite-doc/blob/PRD-dev/requirments/source/userOriented/case.json>`_\ 目录下 的每个case绘制 ``UML 活动图``
+
+基本要求
+
+
+#. 使用\ ``plantuml``\ 进行绘制
+#. 在\ ``/source/userOriented``\ 目录下新建一个\ ``uml``\ 文件夹，并将绘制(编写)的UML图置于此处
+#. 每一个\ ``case``\ 对应一个\ ``uml``\ 文件，文件名应该是\ ``case``\ 的\ ``name``\ 字段, 文件扩展名是\ ``plantuml``\ 。该文件应当置于\ ``uml``\ 文件夹内。
+#. 请注意\ ``uml活动图``\ 的规范, 建议阅读\ `Activity Diagram <https://en.wikipedia.org/wiki/Activity_diagram>`_
+
+该任务计200KPI
+
+该任务应当在\ ``2019年3月22日24:00``\ 前完成
+
+注: 至少完成 #9 提交的 ``case.json`` 版本中用例的建模。
+
+《需求文档》继续细化面向用户的需求建模
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+成员:mqlKKK
+
+文档仓库\ `shattuckite-doc <https://github.com/buaaembeddedse/shattuckite-doc/tree/PRD-dev>`_\ 的\ ``PRD-dev``\ 分支内正在进行需求文档的编写。
+
+请参考\ ``/requirements/source/userOriented/intro.rst``\ 文件内的概述信息，并自行扮演用户的角色，完成面向用户的需求建模。
+
+修改建议
+~~~~~~~~
+
+
+#. ``查看监控数据`` 用例拆分
+
+该用例至少可进一步拆分为 ``查看实时监控数据`` 及 ``查看历史数据``\ 。
+
+
+#. ``管理传感器`` 用例重新设计
+
+管理传感器实际应为管理 ``设备`` 。 ``设备`` 包括\ ``传感器`` ,\ ``执行器`` , ``摄像头`` 等本系统可能会用到的物理设备。
+
+管理设备请细分为\ ``批量设备管理`` ，\ ``传感器管理``  ``执行器管理``\ 等
+
+
+#. 添加\ ``操作执行器``\ 的用例
+
+用户可能会直接操作隶属于\ ``执行器``\ 类的设备。\ **操作** 与 **管理** 属于不同的逻辑，应当为操作执行器单独设计用例。
+
+
+#. 关于\ ``prerequisites``\ 字段
+
+该字段主要体现用例的相互依赖关系。例如在\ ``A``\ 用例的\ ``prerequisites``\ 字段中列出\ ``B``\ 用例，则说明\ ``A``\ 用例一定要在用户执行了\ ``B``\ 用例后才会执行。 目前部分用例该字段有些许不妥，请修改。
+
+
+#. 关于\ ``case.json`` 文件编辑
+
+`9 <https://github.com/buaaembeddedse/shattuckite-META/issues/9>`_  中提交的\ ``case.json``\ 版本存在些许语法错误。建议使用带有\ ``json lint``\ 功能的编辑器对本文件进行编辑。
+
+该任务计\ ``100KPI``
+
+该任务应当在\ ``2019年3月20日24:00``\ 前完成。
+
+《需求文档》面向用户的需求建模编写
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+成员:mqlKKK
+
+文档仓库\ `shattuckite-doc <https://github.com/buaaembeddedse/shattuckite-doc/tree/PRD-dev>`_\ 的\ ``PRD-dev``\ 分支内正在进行需求文档的编写。
+
+请参考\ ``/requirements/source/userOriented/intro.rst``\ 文件内的概述信息，并自行扮演用户的角色，完成面向用户的需求建模。
+
+在编写用例时，应当编辑\ ``/requirements/source/userOriented/case.json``\ 文件。该文件内已经设计了两个用例供参考。
+
+请尽可能多的提出需求并以标准化用例的形式记录。
+
+该任务计\ ``100KPI``
+
+该任务应当在\ ``2019年3月17日24:00``\ 前完成。
+
+《需求文档》编译配置
+^^^^^^^^^^^^^^^^^^^^
+
+成员:wenguang1998
+
+修改\ `shattuckite-doc <https://github.com/buaaembeddedse/shattuckite-doc>`_\ 仓库\ ``requirements``\ 分支,\ ``requirements/source``\ 目录下的\ ``conf.py``\ 文件, 实现
+
+
+#. ``(100kpi)``\ 输出\ ``pdf``\ 的\ ``title page``\ 和项目计划书的相同。
+#. ``(100kpi)``\ 自动根据符合特定格式的commit信息修改文档内的修订历史记录
+
+注: 上述\ ``符合格式的commit信息``\ ，格式定义为:  使用\ ``git log``\ 输出提交历史记录后，可被正则表达式
+
+.. code-block::
+
+   ^commit(.*?)$\nAuthor:(.*?)$\nDate:(.*?)$\s+SHADOC-002\sDOC\sUPDATE\s+AUTHOR:(.*?)\s+CENSOR:(.*?)\s+NOTE:(.*?)$
+
+匹配并提取分组的格式。
+
+该任务应当在\ ``2019年3月15日24:00``\ 前完成。
+
+arm交叉编译环境搭建
+^^^^^^^^^^^^^^^^^^^
+
+成员:Dicky35
+
+``100kpi``\ 编译环境搭建
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+编写 ``Dockerfile``\ , 新建一个\ ``docker img``\ 。 在使用该\ ``img``\ 实例化\ ``container``\ 后, 应当实现
+
+
+#. 内部含有交叉编译各种\ ``arm``\ 架构二进制程序的编译环境
+#. ``/root``\ 目录下提供一个shell脚本\ ``armenv.sh``\ , ``source``\ 该脚本后, 系统内和编译有关的环境变量会被自动替换为\ ``arm``\ 交叉编译器版本。
+
+``100kpi`` 测试与提交
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+在完成\ ``Dockerfile`` 的编写后, 使用该环境交叉编译 `grpc <https://github.com/grpc/grpc>`_\ 到\ ``Cortex-A9``\ 架构。
+
+该任务应当在\ ``2019年3月15日24:00``\ 前完成。
+
+《需求文档》自动化发布
+^^^^^^^^^^^^^^^^^^^^^^
+
+成员:baixusata
+
+``150kpi`` 自动发布逻辑编写
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+修改文档仓库\ `(shattuckite-doc) <https://github.com/buaaembeddedse/shattuckite-doc>`_\ 项目文件夹内的\ ``Jenkinsfile``\ , 在Jenkins流程被触发后
+
+
+#. 自动编译更新后的《需求文档》，生成\ ``pdf``\ 文件。
+#. 将生成的\ ``pdf``\ 重新命名为 ``需求文档-$version`` 的格式。\ ``$version``\ 为使用\ ``git describe``\ 生成的版本号。
+#. 将生成的文档自动push到\ `Team105 <https://github.com/sebuaa2019/Team105>`_\ 仓库
+
+注意
+
+
+#. 文档仓库内可能同时存在多个分支。在编译及重命名文档时，可能需要通过检查当前分支的名称，来选择不同的编译/发布逻辑。
+#. 没有开放文档仓库的写权限，请自行fork一个仓库进行调试。
+
+``50kpi`` Jenkins项目配置
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+请配置\ ``Jenkins``\ 项目，使其响应除\ ``master分支``\ 和\ ``*-dev``\ 分支外的所有分支的更新。(可以通过项目配置页面里的正则表达式过滤器实现)
+
+该任务应当在\ ``2019年3月15日24:00``\ 前完成。
+
 React+Redux 前端: UI框架 前端路由与scss样式
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

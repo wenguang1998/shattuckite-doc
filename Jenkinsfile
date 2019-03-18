@@ -9,6 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         sh ''' 
+                git pull --tags;
                 cd projectPlan;
                 make html;
                 make latexpdf;
@@ -20,22 +21,24 @@ pipeline {
   stage('DeployToGIT') {
     steps {
         sh 'git pull --tags'
-        sh 'git submodule update --init'
-        //保持发布子仓库处于最新提交
-        sh 'cd dist; git checkout master;git pull;'
-
+        sh '''
+          if [ ! -d Team105 ]; then
+            git clone --depth=1 git@github.com:sebuaa2019/Team105.git;
+          else
+            cd Team105;
+            git pull --depth=1;
+          fi
+        '''
         //重新发布项目计划书
-        sh 'rm -f dist/项目计划书*'
-        sh 'cp projectPlan/build/latex/shattuckite.pdf dist/项目计划书-$(git describe).pdf'
-
-        sh 'git add dist'
+        sh 'rm -f Team105/项目计划书*'
+        sh 'cp projectPlan/build/latex/shattuckite.pdf Team105/项目计划书-$(git describe).pdf'
 
         sh '''git config --global user.email "cn_lhc@qq.com";
         git config --global user.name "Jenkins-Bot"
         '''
 
         sh '''
-          cd dist;
+          cd Team105;
           git add -A;
           echo auto CI build  >/tmp/message;
           git commit -F /tmp/message;
