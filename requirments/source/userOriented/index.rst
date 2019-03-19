@@ -3,3 +3,4 @@
 
 .. include:: ./intro.rstinc
 .. include:: ./userPortrait.rstinc
+.. include:: ./case.rstinc
