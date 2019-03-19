@@ -3,4 +3,6 @@
 
 .. include:: ./intro.rstinc
 .. include:: ./classify.rstinc
-.. include:: ./source.rstinc
+.. include:: ./generate.rstinc
+.. include:: ./transfer.rstinc
+.. include:: ./persistence.rstinc
