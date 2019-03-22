@@ -33,6 +33,10 @@ template = \
 .. table:: 用例:{name} 异常处理
 {exception}
 
+UML用例图表示
+########################
+
+.. uml:: ./uml/{name}.uml
 
 '''
 
