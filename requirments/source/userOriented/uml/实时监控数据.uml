@@ -1,0 +1,33 @@
+@startuml
+start
+floating note left:查看监控数据
+:普通用户;
+:实时监控数据;
+if(返回至[查看监控数据]页面？)then(是)
+:返回至[查看监控数据]页面;
+else(否)
+if(网络错误？)then(是)
+:分类报错;
+split
+:无法连接;
+split again
+:服务器未响应;
+split again
+:使用文字提示
+   网络错误;
+end split
+else(否)
+:系统显示实时监控数据
+====
+表现形式为折线图;
+split
+:添加传感器数据
+表现在折线图中;
+split again
+:移除折线图中的
+某传感器数据;
+end split
+endif
+endif
+stop
+@enduml
