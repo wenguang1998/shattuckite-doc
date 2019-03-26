@@ -18,25 +18,25 @@ template = \
     ========================== ==========================================
 
 
-.. _scene-{hash}
-
-用例场景
-###########
+({shortHash})用例场景
+#################################
 
 {scene}
 
-.. _exception-{hash}
-
-异常处理
-############
+({shortHash})异常处理
+###############################
 
 .. table:: 用例:{name} 异常处理
 {exception}
 
-UML用例图表示
-########################
+({shortHash})UML活动图表示
+###################################
 
 .. uml:: ./uml/{name}.uml
+    :caption: UML{umlNumber}: 用例:{name}-活动图
+    :align: center
+    :width: 1
+
 
 '''
 
@@ -44,6 +44,7 @@ def addHash(x):
     m = hashlib.sha256()
     m.update(bytes(x['name'],'utf-8'))
     x['hash']= m.hexdigest()[0:12]
+    x['shortHash']= m.hexdigest()[0:5]
     
 
 def handlePrereq(x):
@@ -83,13 +84,13 @@ def handle(x):
     handleEeception(x)
     addHash(x)
 
+
 with open('./case.json','r') as ifp:
     with open('./caseGenerated.rstinc','w') as ofp:
         jsobj =[dict(i) for i in json.load(ifp)] 
-        for i in jsobj:
+        for v,i in enumerate(jsobj):
             handle(i)
-
-        
+            i['umlNumber']=v
         ofp.write(functools.reduce(lambda x,y:x+template.format(**y),jsobj,''))
 
 
