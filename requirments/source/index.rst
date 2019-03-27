@@ -12,6 +12,7 @@ shattuckite 《需求文档》
    :numbered:
 
    range/index
+   ./bussinessReq.rst
    userOriented/index
    dataOriented/index
    auxiliaryRequirements/index

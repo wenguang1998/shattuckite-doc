@@ -36,7 +36,7 @@ htmlhelp_basename = 'shattuckite-requirementsdoc'
 latex_engine = 'xelatex'
 latex_documents = [
     (master_doc, 'shattuckite-requirements.tex', 'shattuckite 需求文档', 
-    'SHADOC-002,SDP,第五组', 'howto'),
+    'SHADOC-002,SRS,第五组', 'howto'),
 ]
 plantuml = 'java -jar /opt/plantuml.jar -charset UTF-8'
 plantuml_output_format = 'svg_obj'
@@ -129,6 +129,21 @@ latex_elements = {
 \makeatother
 \newcommand{\makeMetaPage}{
 \newpage
+\begin{table}[]
+\caption {\heiti 分工说明} \label{tab:title} 
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+小组名称 & \multicolumn{2}{l|}{lemon}     \\ \hline
+学号   & 姓名     & 本文档中主要承担的工作内容      \\ \hline
+     16231275&        刘瀚骋&    1, 2, 3.1, 3.2, 4, 5, 6节内容编写/自动化工具编写/文档校对与评审              \\ \hline 
+     16061053&       孟巧岚&    3.3节内容编写(不包括UML绘制)              \\ \hline 
+     16061069&       许文广&    2,3.3 节UML绘制              \\ \hline 
+     16061044&       张起铭&     可持续部署实现  \\ \hline 
+     16061136&       邓健&      文档校对与评审 \\ \hline 
+
+\end{tabular}
+\end{table}
 \begin{table}[]
 \caption {\heiti 版本变更历史} \label{tab:title}
 \centering
