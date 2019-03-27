@@ -1,5 +1,6 @@
-面向用户的建模
+功能需求
 ------------------
 
-.. include:: ./intro.rst
-.. include:: ./userPortrait.rst
+.. include:: ./intro.rstinc
+.. include:: ./userPortrait.rstinc
+.. include:: ./case.rstinc

@@ -1,0 +1,19 @@
+@startuml
+start
+floating note left:概览系统情况
+:普通用户;
+:管理设备;
+if(返回至主页面？)then(是)
+:返回至主页面;
+else(否)
+:选择操作类型;
+split
+:管理事件;
+split again
+:管理传感器;
+split again
+:管理执行器;
+end split
+endif
+stop
+@enduml

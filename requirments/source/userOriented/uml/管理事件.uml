@@ -1,0 +1,17 @@
+@startuml
+start
+floating note left:管理设备
+:普通用户;
+:管理事件;
+if(返回至[管理设备]页面？)then(是)
+:返回至[管理设备]页面;
+else(否)
+:呈现系统中所有事件;
+split
+:删除事件;
+split again
+:新建事件;
+end split
+endif
+stop
+@enduml

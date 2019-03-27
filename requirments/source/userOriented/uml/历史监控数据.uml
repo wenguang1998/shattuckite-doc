@@ -1,0 +1,33 @@
+@startuml
+start
+floating note left:查看监控数据
+:普通用户;
+:历史监控数据;
+if(返回至[查看监控数据]页面？)then(是)
+:返回至[查看监控数据]页面;
+else(否)
+if(网络错误？)then(是)
+:分类报错;
+split
+:无法连接;
+split again
+:服务器未响应;
+split again
+:使用文字提示
+   网络错误;
+end split
+else(否)
+: 系统展示历史监控数据
+====
+      默认表格形式
+   表格中一组数据包含
+一个时间点所有传感器数据;
+split
+:使数据以折线图显示;
+split again
+:删除历史监控数据;
+end split
+endif
+endif
+stop
+@enduml
