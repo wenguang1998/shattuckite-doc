@@ -1,3 +1,5 @@
+
+
 import os
 import re
 import subprocess
@@ -5,12 +7,14 @@ import datetime
 import json
 import requests
 import m2r
+
 project = 'shattuckite-requirements'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
 version = '0.0'
 release = release = re.sub('^v', '', os.popen('git describe').read().strip())
 needs_sphinx = '1.8'
+
 extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
@@ -18,10 +22,12 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
+
     'sphinx.ext.githubpages',
     'sphinxcontrib.plantuml',
     'sphinx.ext.graphviz',
     'sphinx.ext.autosectionlabel',
+
 ]
 
 templates_path = ['_templates']
@@ -88,12 +94,14 @@ for commit in SHADCommitList:
 #         memberList=','.join([i['login'] for i in issue['assignees']])
 #         AutoTaskListMDBuf+=AutoTaskListTemplate.format(**issue,smember=memberList)
 #
+
 #     rstfp.write(m2r.convert(AutoTaskListMDBuf))
 
 latex_elements = {
     'papersize': 'a4paper',
     'fncychap': '',
     'figure_align': 'H',
+
     'extraclassoptions': 'openany,oneside',
     'maketitle': r'''\shattuckitemaketitle
 \newpage
@@ -111,7 +119,9 @@ latex_elements = {
   \vskip 2em%
   \begin{center}%
   \let \footnote \thanks
+
     {\zihao{-0} Shattuckite \par}%
+
     \vskip 1.5em%
     {\zihao{-0} 需求文档 \par}
     \vskip 5.5em%
@@ -127,6 +137,7 @@ latex_elements = {
   \par
   \vskip 1.5em}
 \makeatother
+
 \newcommand{\makeMetaPage}{
 \newpage
 \begin{table}[]
@@ -146,6 +157,7 @@ latex_elements = {
 \end{table}
 \begin{table}[]
 \caption {\heiti 版本变更历史} \label{tab:title}
+
 \centering
 \begin{tabular}{|l|p{2cm}|p{4cm}|l|p{5cm}|}
 \hline
@@ -156,6 +168,8 @@ latex_elements = {
 \clearpage
 }'''
 }
+
+
 texinfo_documents = [
     (master_doc, 'shattuckite', 'shattuckite 需求文档',
      author, 'shattuckite', 'shattuckite 物联网开发框架',
