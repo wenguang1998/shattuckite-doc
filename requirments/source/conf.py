@@ -93,6 +93,7 @@ for commit in SHADCommitList:
 latex_elements = {
     'papersize': 'a4paper',
     'fncychap': '',
+    'figure_align': 'H',
     'extraclassoptions': 'openany,oneside',
     'maketitle': r'''\shattuckitemaketitle
 \newpage
