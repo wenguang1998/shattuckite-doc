@@ -3,7 +3,7 @@
         "tableName":"SensorData",
         "verboseName":"传感器数据",
         "notes":[
-            ""
+            "该数据表用于存储传感器产生的数据。在逻辑上，传感器产生的数据与传感器实体拥有多对一的关系，即一个传感器可以产生若干组数据，故该数据表持有指向传感器数据表的外键。"
         ],
         "fields":[
             {
@@ -35,7 +35,7 @@
         "tableName":"Event",
         "verboseName":"事件",
         "notes":[
-            ""
+            "该数据表用于存储系统运行过程中产生的事件。"
         ],
         "fields":[
             {
@@ -59,12 +59,12 @@
             {
                 "key":"type",
                 "type":"String",
-                "note":"事件描述"
+                "note":"事件类型。"
             },
             {
                 "key":"level",
                 "type":"Integer",
-                "note":"事件等级"
+                "note":"事件等级。 数字表示的事件优先级，数字越小表示优先级越高。"
             },
             {
                 "key":"time",
@@ -74,7 +74,7 @@
             {
                 "key":"verbose",
                 "type":"String",
-                "note":"事件描述"
+                "note":"事件描述。用自然语言简述事件背景，由DSL确定。"
             }
         ]
     },
@@ -82,7 +82,7 @@
         "tableName":"Sensor",
         "verboseName":"传感器",
         "notes":[
-            ""
+            "该数据表用于存储传感器的相关数据，其中每一条记录和一个物理上存在的传感器实体一一对应。"
         ],
         "fields":[
             {
@@ -119,7 +119,7 @@
         "tableName":"House",
         "verboseName":"房屋",
         "notes":[
-            ""
+            "该数据表用于在逻辑上表示由一个嵌入式终端及附加设备所覆盖的物理区域。"
         ],
         "fields":[
             {
@@ -145,7 +145,7 @@
         "tableName":"Actuator",
         "verboseName":"执行器",
         "notes":[
-            ""
+            "该数据表用于记录执行器实体的相关信息。"
         ],
         "fields":[
             {
@@ -182,7 +182,7 @@
         "tableName":"User",
         "verboseName":"用户",
         "notes":[
-            ""
+            "记录系统用户及相关信息。"
         ],
         "fields":[
             {
@@ -219,7 +219,7 @@
         "tableName":"Permission",
         "verboseName":"权限",
         "notes":[
-            ""
+            "存储预定义的值，表示用户的操作权限。"
         ],
         "fields":[
             {
