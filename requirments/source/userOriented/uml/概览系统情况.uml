@@ -1,0 +1,41 @@
+@startuml
+start
+floating note left:登陆控制程序
+:普通用户;
+:概览系统情况
+====
+控制程序主页面;
+if(出错？)then(是)
+:分类报错;
+split
+:无法登陆;
+split again
+:服务器未响应;
+split again
+:使用文字提示
+   密码错误;
+end split
+else(否)
+split
+:浏览主页面获取
+当前系统的运行状况
+====
+系统的工作状态
+当前未处理事件;
+split again
+:导航到其他页面;
+split
+:监控数据;
+split again
+:历史事件;
+split again
+:管理设备;
+split again
+:操作执行器;
+split again
+:用户详情;
+end split
+end split
+endif
+stop
+@enduml
