@@ -37,8 +37,6 @@
 
 .. uml:: ./uml/登陆控制程序.uml
     :caption: UML0: 用例:登陆控制程序-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -89,8 +87,6 @@
 
 .. uml:: ./uml/概览系统情况.uml
     :caption: UML1: 用例:概览系统情况-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -133,8 +129,6 @@
 
 .. uml:: ./uml/处理未处理事件.uml
     :caption: UML2: 用例:处理未处理事件-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -174,8 +168,6 @@
 
 .. uml:: ./uml/查看监控数据.uml
     :caption: UML3: 用例:查看监控数据-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -216,8 +208,6 @@
 
 .. uml:: ./uml/实时监控数据.uml
     :caption: UML4: 用例:实时监控数据-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -259,8 +249,6 @@
 
 .. uml:: ./uml/历史监控数据.uml
     :caption: UML5: 用例:历史监控数据-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -307,8 +295,6 @@
 
 .. uml:: ./uml/查看历史事件.uml
     :caption: UML6: 用例:查看历史事件-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -348,8 +334,6 @@
 
 .. uml:: ./uml/管理设备.uml
     :caption: UML7: 用例:管理设备-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -389,8 +373,6 @@
 
 .. uml:: ./uml/管理事件.uml
     :caption: UML8: 用例:管理事件-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -431,8 +413,6 @@
 
 .. uml:: ./uml/新建事件.uml
     :caption: UML9: 用例:新建事件-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -473,8 +453,6 @@
 
 .. uml:: ./uml/管理执行器.uml
     :caption: UML10: 用例:管理执行器-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -515,8 +493,6 @@
 
 .. uml:: ./uml/管理传感器.uml
     :caption: UML11: 用例:管理传感器-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -558,8 +534,6 @@
 
 .. uml:: ./uml/操作执行器.uml
     :caption: UML12: 用例:操作执行器-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -605,8 +579,6 @@
 
 .. uml:: ./uml/查看用户信息.uml
     :caption: UML13: 用例:查看用户信息-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -648,8 +620,6 @@
 
 .. uml:: ./uml/修改账号密码.uml
     :caption: UML14: 用例:修改账号密码-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -688,8 +658,6 @@
 
 .. uml:: ./uml/反馈信息.uml
     :caption: UML15: 用例:反馈信息-活动图
-    :align: center
-    :width: 1
 
 
 
@@ -728,7 +696,5 @@
 
 .. uml:: ./uml/查看系统用户.uml
     :caption: UML16: 用例:查看系统用户-活动图
-    :align: center
-    :width: 1
 
 

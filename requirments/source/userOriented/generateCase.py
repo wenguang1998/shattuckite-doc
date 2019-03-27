@@ -34,8 +34,6 @@ template = \
 
 .. uml:: ./uml/{name}.uml
     :caption: UML{umlNumber}: 用例:{name}-活动图
-    :align: center
-    :width: 1
 
 
 '''
