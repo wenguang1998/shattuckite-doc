@@ -33,7 +33,7 @@ template = \
 ###################################
 
 .. uml:: ./uml/{name}.uml
-    :caption: UML{umlNumber}: 用例:{name}-活动图
+    :caption: 用例:{name}-活动图
 
 
 '''

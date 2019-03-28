@@ -7,5 +7,11 @@
 
 本系统承载的业务流程请参见 :ref:`用例`
 
+给出本系统的用例图
+
+.. uml:: ./userOriented/uml/example.uml
+    :caption: 系统用例图
+
+
 本节为何不额外编写新的内容请参见 :ref:`不重复原则`
 
