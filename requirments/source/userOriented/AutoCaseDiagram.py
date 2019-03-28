@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 import json
 
-with open('.\case.json','r',encoding = 'utf-8')as f:
+with open('./case.json','r',encoding = 'utf-8')as f:
     json_list = json.load(f)
     # 二维数组生成
     # for i in json_list:
@@ -12,7 +12,7 @@ with open('.\case.json','r',encoding = 'utf-8')as f:
     # for i in nameCaseList:
     #     print(i)
     # print(prerequisitesList)
-    exam = open(".\\uml\\example.uml","w+",encoding = 'utf-8')
+    exam = open("./uml/example.uml","w+",encoding = 'utf-8')
     exam.write("@startuml\n")
     exam.write(":普通用户: as user\n")
     for i in json_list:
