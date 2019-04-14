@@ -1,0 +1,57 @@
+{
+    "name":"shattuckite-edge-driver",
+    "abstract":true,
+    "verboseName":"边缘网络驱动",
+    "language":["CXX"],
+    "hardwareEnv":["Cortex-a9"],
+    "buildSystem":["CMake"],
+    "softwareEnv":[
+        {
+            "genre":"OS",
+            "constraint":["Linux Kernel>=3.10"]
+        }
+
+    ],
+    "interface":[
+        {
+            "name":"getDevicesList",
+            "input":[],
+            "output":["abstractDevicesList"],
+            "exposed":"True",
+            "invokeMethod":"IPC-FIFO",
+            "blocking":false,
+            "pure":false,
+            "note":"获得当前可用的设备列表"
+        },
+        {
+            "name":"setActuator",
+            "input":["abstractActuatorID","abstractActuatorStatus"],
+            "output":["boolean"],
+            "invokeMethod":"IPC-FIFO",
+            "exposed":"True",
+            "blocking":false,
+            "pure":false,
+            "note":"设置某个执行器的状态"
+        },
+        {
+            "name":"readActuator",
+            "input":["abstractActuatorID"],
+            "output":["abstractActuatorStatus"],
+            "invokeMethod":"IPC-FIFO",
+            "exposed":"True",
+            "blocking":false,
+            "pure":false,
+            "note":"读取某个执行器的状态"
+        },
+        {
+            "name":"readSensor",
+            "input":["abstractSensorID"],
+            "output":["abstractSensorData"],
+            "invokeMethod":"IPC-FIFO",
+            "exposed":"True",
+            "blocking":false,
+            "pure":false,
+            "note":"读取某个传感器的数据"
+        }
+    ]
+}
