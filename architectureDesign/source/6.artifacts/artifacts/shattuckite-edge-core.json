@@ -1,0 +1,203 @@
+{
+    "name": "shattuckite-edge-core",
+    "verboseName": "嵌入式终端核心",
+    "language": ["python"],
+    "hardwareEnv": ["Cortex-a9"],
+    "buildSystem": ["CMake"],
+    "softwareEnv": [{
+            "genre": "OS",
+            "constraint": ["Linux Kernel>=3.10"]
+        },
+        {
+            "genre": "pypi",
+            "constraint": [
+                "paho-mqtt >=1.40",
+                "redis >=3.2.1"
+            ]
+        }
+    ],
+    "interface": [
+        {
+            "name":"main",
+            "input": [],
+            "output": [],
+            "exposed": false,
+            "invokeMethod": "Invoke",
+            "blocking": true,
+            "pure": false,
+            "note": "程序入口"
+        },
+        { "name": "coreInit",
+            "input": ["ICoreConf"],
+            "output": ["ICoreStateObject"],
+            "exposed": false,
+            "invokeMethod": "Invoke",
+            "invokeBy":["main"],
+            "blocking": true,
+            "pure": false,
+            "note": "向远程服务器注册嵌入式终端"
+        },
+        { 
+            "format":"class",
+            "className":"shattuckiteSensorLoop"
+        },
+        { 
+            "format":"class",
+            "name":"shattuckiteCoreContext"
+        },
+        {
+            "format":"class",
+            "name":"shattuckiteSensorLoop"
+        },
+        {
+            "format":"class",
+            "name":"shattuckitePublisherLoop"
+        },
+        {
+            "format":"class",
+            "name":"shattuckiteSubscriberLoop"
+        },
+        {
+            "format":"class",
+            "name":"shattuckiteCommandDispatcherLoop"
+        }
+    ],
+
+    "class":[
+        {"name":"shattuckiteCoreContext",
+            "brief":"公共上下文对象, 为其他类提供Redis和shattuckite驱动访问支持。",
+            "method":[
+                {"name":"listDevices",
+                    "brief":"从Redis中读取当前系统的所有设备。"
+                },
+                {"name":"getSensorConfByID",
+                    "brief":"从Redis中取回特定ID的传感器数据。"
+                },
+                { "name":"getDriverObject",
+                    "brief":"返回一个shattuckite-driver对象"
+                }
+            ],
+            "singleton":true
+        },
+        {"name":"shattuckiteSensorLoop",
+            "beief":"负责处理传感器读逻辑。根据传感器配置定时读取数据，并将数据发布到本地Redis的相关Topic",
+            "method":[
+            {"name":"shattuckiteSensorLoop",
+                "brief":"构造函数"
+            },
+            {"name":"registerTaskBySensorConfig",
+                "brief":"通过传感器配置信息注册一个定时执行的任务。如果该任务已经存在，则使用现有配置更新任务。"
+            },
+            {"name":"getTaskBySensorID",
+                "brief":"根据传感器ID获得一个任务对应的python asyncio task对象"
+            },
+            {"name":"cancelTaskBySensorID",
+                "brief":"根据传感器ID取消相应任务的运行"
+            }
+            ],
+            "member":[ {"name":"__mContext",
+                    "accessibility":"private",
+                    "type":"shattuckiteCoreContext",
+                    "UMLRelation":"association",
+                    "breif":"关联上下文对象对以获得操作Redis的能力"
+                }
+            ]
+        },
+        {"name":"shattuckitePublisherLoop",
+            "brief":"监听本地Redis的相关端口,并将消息和命令通过MQTT协议转发到远程MQTT Broker",
+            "method":[
+                { "name":"listenLocalRedis",
+                  "brief":"监听本地Redis消息队列，获取任务"
+                },
+                { "name": "publishCommandECHO",
+                  "brief": "向远程MQTT Broker推送命令执行回显",
+                  "invokeMethod": "Invoke",
+                  "invokeBy":"listenLocalRedis"
+                },
+                { "name": "publishSensorData",
+                  "brief": "向远程MQTT Broker推送传感器数据",
+                  "invokeMethod": "Invoke",
+                  "invokeBy":"listenLocalRedis"
+                }
+
+            ],
+            "singleton":true,
+            "member":[ {"name":"__mContext",
+                    "accessibility":"private",
+                    "type":"shattuckiteCoreContext",
+                    "UMLRelation":"Association",
+                    "breif":"关联上下文对象对以获得从Redis消息队列订阅消息的能力"
+                }
+            ]
+        },
+        {"name":"shattuckiteSubscriberLoop",
+            "brief":"订阅远程MQTT Broker的命令Topic并获取信息",
+            "method":[
+                {"name": "listenLocalTopic",
+                  "brief": "订阅远程MQTT Broker的命令Topic,并获取命令信息"
+                },
+                {"name": "pubCMDToRedis",
+                  "note": "将收到命令Payload转发到本地Redis相应的Topic中",
+                  "invokeMethod": "Invoke",
+                  "invokeBy":"listenLocalTopic"
+                }
+            ],
+            "member":[ {"name":"__mContext",
+                    "accessibility":"private",
+                    "type":"shattuckiteCoreContext",
+                    "UMLRelation":"Association",
+                    "brief":"关联上下文对象以订阅redis消息队列"
+                }
+            ]
+
+        },
+        {"name":"shattuckiteCommandDispatcherLoop",
+            "method":[
+                {"name":"listCommandAvailable",
+                    "brief":"列出当前可用的命令"
+                },
+                {"name":"listenToLocalRedis",
+                    "brief":"订阅本地Redis消息队列，获取经转发的MQTT命令 "
+                }
+            ],
+            "member":[ {"name":"__mContext",
+                    "accessibility":"private",
+                    "type":"shattuckiteCoreContext",
+                    "UMLRelation":"association"
+                },{"name":"__mCommandList",
+                    "accessibility":"private",
+                    "type":"shattuckiteCommand[]",
+                    "UMLRelation":"composition"
+                }
+            ]
+        },
+        {"name":"shattuckiteAbstractCommand",
+            "abstract":true,
+            "method":[
+                {"name":"run",
+                    "abstract":"true"
+                }
+            ],
+            "member":[ {"name":"__mContext",
+                    "accessibility":"private",
+                    "type":"shattuckiteCoreContext",
+                    "UMLRelation":"Association"
+                }
+            ]
+        },
+        {"name":"shattuckiteCommandSetActuatorState",
+            "method":[
+                {"name":"run",
+                    "override":true}
+            ],
+            "generalization":["shattuckiteAbstractCommand"]
+        },
+        {"name":"shattuckiteCommandSetSensorConf",
+            "method":[
+                {"name":"run",
+                    "override":true}
+            ],
+            "generalization":["shattuckiteAbstractCommand"]
+        }
+    ]
+}
