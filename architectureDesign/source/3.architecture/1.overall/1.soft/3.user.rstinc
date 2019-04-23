@@ -1,0 +1,39 @@
+用户端软件架构
++++++++++++++++++
+
+``用户端软件`` 由以下构件组成
+
+1. :ref:`视图模型(shattuckite-gui-viewmodel)`
+2. :ref:`浏览器视图(shattuckite-gui-browserview)`
+3. :ref:`移动端视图(shattuckite-gui-nativeview)`
+
+本项目使用 ``MVVM`` 架构模式实现人机交互接口。
+
+``MVVM`` 中的 ``model`` 由两部分组成:
+
+1. :ref:`服务端软件架构` 中的关系型数据库
+2. 嵌入式硬件的状态.
+
+
+:ref:`视图模型(shattuckite-gui-viewmodel)` 将作为 ``MVVM`` 中的 ``Viewmodel`` 角色。
+该构件应该能够从 ``Model`` 获取数据
+并通过 ``Data-Binding`` 处理与 ``View`` 的交互。
+
+当 ``ViewModel`` 需要对关系型数据库中的数据进行操作时, 
+将通过传统意义上的, 基于 ``Http(s)``  协议的 ``RESTful`` 接口; 
+当 ``ViewModel`` 需要直接对嵌入式硬件的状态进行操作时, 需要借助一个消息队列, 以 ``Broker Pattern`` 的方式异步的获取数据,
+即 :ref:`服务器端软件架构` 中提到的 ``Defered`` 接口。
+
+:ref:`浏览器视图(shattuckite-gui-browserview)` 和 :ref:`移动端视图(shattuckite-gui-nativeview)` 将通过两种 ``Data-Binding`` 与 ``ViewModel``
+交互数据, 具体的讲
+
+1. ``ViewModel`` 在内部维护一个状态树，并通过 ``Properties`` 的形式，将数据提供给 ``View``。
+2. ``View`` 通过 ``Event-Callback`` 更新 ``ViewModel`` 中的状态。
+
+总之，界面由状态树唯一决定，页面发生变化的唯一方法是更新状态树。
+
+TODO: 构件图
+
+TODO:partial case:用户访问历史数据
+TODO:partial case:用户访问实时数据
+TODO:partial case:用户访问控制数据

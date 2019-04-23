@@ -14,6 +14,7 @@ pipeline {
                 make html;
                 make latexpdf;
                 cd requirments;
+                cd architectureDesign;
                 umask 000;make html;
                 umask 000;make latexpdf;
                 chmod 777 build -R
@@ -44,6 +45,7 @@ pipeline {
        not {
           anyOf {
             branch 'master';
+            branch 'SDD-dev';
             branch 'PRD-dev'
           }
        }
@@ -60,6 +62,8 @@ pipeline {
         //重新发布项目计划书
         sh 'rm -f Team105/需求文档*'
         sh 'cp requirments/build/latex/shattuckite-requirements.pdf Team105/需求文档-$(git describe).pdf'
+        sh 'rm -f Team105/设计文档*'
+        sh 'cp architectureDesign/build/latex/shattuckite-design.pdf Team105/设计文档-$(git describe --always).pdf'
 
         sh '''git config user.email "1216573454@qq.com";
         git config user.name "Jenkins-Bot"
@@ -75,6 +79,7 @@ pipeline {
         //需要手动删除。因为build产生的文件隶属于root用户组，jenkins用户无权删除。
         sh 'rm projectPlan/build -Rf;'
         sh 'rm requirments/build -Rf;'
+        sh 'rm architectureDesign/build -Rf;'
       }
     } 
   }

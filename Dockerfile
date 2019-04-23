@@ -13,6 +13,7 @@ RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip --upg
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple setuptools --upgrade
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinx --upgrade
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinxcontrib-plantuml
+RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinxcontrib-bibtex
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinx_rtd_theme
 RUN cd /opt;wget http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple m2r
