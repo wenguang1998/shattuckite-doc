@@ -1,0 +1,76 @@
+@startuml
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+!define pk(x) <b><color:red>x</color></b>
+!define unique(x) <color:green>x</color>
+!define fk(x) <b>x</b>
+!define not_null(x) <u>x</u>
+
+hide methods
+hide stereotypes
+
+ Table(SensorData,"SensorData\n(传感器数据)") { 
+	pk(dataIndex) Integer
+	fk(Sensor) Integer
+	value Integer
+	time Datetime
+ 
+    }
+ Table(Event,"Event\n(事件)") { 
+	pk(eventId) Integer
+	fk(Sensor) Integer
+	fk(Actuator) Integer
+	type String
+	level Integer
+	time Datetime
+	verbose String
+ 
+    }
+ Table(Sensor,"Sensor\n(传感器)") { 
+	pk(sensorID) Integer
+	fk(House) Integer
+	updateRate Integer
+	EventTriggerDSL string
+	PersistenceStrategyDSL string
+ 
+    }
+ Table(House,"House\n(房屋)") { 
+	pk(HouseId) Integer
+	name String
+	deviceType DeviceType <: String
+ 
+    }
+ Table(Actuator,"Actuator\n(执行器)") { 
+	pk(ActuatorId) Integer
+	fk(House) Integer
+	type ActuatorType <: String
+	value String
+	EventTriggerDSL String
+ 
+    }
+ Table(User,"User\n(用户)") { 
+	pk(UID) Integer
+	fk(House) Integer
+	fk(Permission) Integer
+	username String
+	password String
+ 
+    }
+ Table(Permission,"Permission\n(权限)") { 
+	pk(permissionID) Integer
+	code  String
+	verbose String
+ 
+    }
+
+
+SensorData "N" --> "1" Sensor 
+Event "N" --> "1" Sensor 
+Event "N" --> "1" Actuator 
+Sensor "N" --> "1" House 
+Actuator "N" --> "1" House 
+User "N" --> "1" House 
+User "N" --> "1" Permission 
+
+
+
+@enduml
