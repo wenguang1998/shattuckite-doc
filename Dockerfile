@@ -9,6 +9,7 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y  latexmk python3-sphinx python3-pip plantuml texlive-lang-chinese texlive-xetex git wget
 RUN apt-get install -y  fonts-wqy-microhei ttf-wqy-zenhei
+RUN apt-get install -y  cmake
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip --upgrade
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple setuptools --upgrade
 RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple sphinx --upgrade
