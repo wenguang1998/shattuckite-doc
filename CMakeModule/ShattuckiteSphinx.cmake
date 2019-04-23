@@ -1,4 +1,4 @@
-function(ShattuckiteSphinxDoc aDocAbbr aSphinxRoot aOutDir)
+function(ShattuckiteSphinxDoc aDocAbbr aDocIndex aSphinxRoot aOutDir )
   message(STATUS "Add Document: shattuckite-${aDocAbbr} : ${aSphinxRoot}" )
   file(GLOB_RECURSE ${aDocAbbr}_DEPENDENCIES 
         ${aSphinxRoot}/*.rst
@@ -8,7 +8,13 @@ function(ShattuckiteSphinxDoc aDocAbbr aSphinxRoot aOutDir)
         ${aSphinxRoot}/*.dot)
 
   execute_process (
-      COMMAND git describe --match "*-${aDocAbbr}"
+      COMMAND bash -c "git log --grep \"SHADOC-${aDocIndex}\" | head -n 1| cut -d' ' -f2"
+      OUTPUT_VARIABLE ${aDocAbbr}_LATESTDIGEST
+  )
+  string(REPLACE "\n" "" ${aDocAbbr}_LATESTDIGEST ${${aDocAbbr}_LATESTDIGEST})
+
+  execute_process (
+      COMMAND git describe --match "*-${aDocAbbr}"  ${${aDocAbbr}_LATESTDIGEST}
       OUTPUT_VARIABLE ${aDocAbbr}_VERSION
   )
   string(REPLACE "\n" "" ${aDocAbbr}_VERSION ${${aDocAbbr}_VERSION})
