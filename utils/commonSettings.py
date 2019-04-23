@@ -33,4 +33,9 @@ latex_elements = {
 \newpage
     ''',
     'releasename': "版本",
+    'fontpkg': r'''
+\setmainfont{WenQuanYi Micro Hei Mono}
+\setsansfont{WenQuanYi Micro Hei Mono}
+\setmonofont{WenQuanYi Micro Hei Mono}
+''',
 }
