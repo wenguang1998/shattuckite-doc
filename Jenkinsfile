@@ -5,10 +5,11 @@ pipeline {
       args '-u root -v $HOME/.ssh:/root/.ssh'
     }
   }
-  stages {
+  stages{
     stage('Build') {
       steps {
         sh ''' 
+        git pull --tags;
         umask 000;
         mkdir -p build;
         cd build;
@@ -16,17 +17,18 @@ pipeline {
         cmake ..;
         make;
         '''
+      }
+    }
+    // stage('DeployToGIT') {
+    // }
+
+    stage('DeployToWebServer') {
+      steps{
+        sh 'chmod a+x ./deployTools/deployToServer.sh'
+        sh './deployTools/deployToServer.sh'
+      }
     }
   }
-  stage('DeployToGIT') {
-  }
-
-  stage('DeployToWebServer') {
-    steps{
-      sh './deployTools/deployToServer.sh'
-    }
-  }
-
   post {
     always {
         archiveArtifacts artifacts: 'build/shattuckite-v*.*.pdf', fingerprint: true
