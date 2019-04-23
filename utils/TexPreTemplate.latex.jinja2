@@ -1,0 +1,55 @@
+\usepackage{ctex}
+\newcommand{\shattuckitemaketitle}{
+	\maketitle
+	\makeMetaPage
+}
+\makeatletter
+\def\@maketitle{
+	\newpage
+	\null
+	\vskip 2em
+	\begin{center}
+		\let \footnote \thanks
+		{\zihao{-0} Shattuckite \par}
+		\vskip 1.5em
+		{\zihao{-0} {{ documentTitle }} \par}
+		\vskip 5.5em
+		{\large
+		\lineskip .5em
+		\begin{tabular}[t]{c}
+			\zihao{4}\@author
+		\end{tabular}\par}
+		\vskip 1em
+			{\heiti\zihao{4}\itshape\py@release \releaseinfo}\par
+	\end{center}
+	\par
+	\vskip 1.5em}
+\makeatother
+
+\newcommand{\makeMetaPage}{
+	\newpage
+	\begin{table}[]
+		\caption {\heiti 分工说明} \label{tab:title}
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			小组名称 & \multicolumn{2}{l|}{lemon}     \\ \hline
+			学号     & 姓名   & 本文档中主要承担的工作内容            \\ \hline
+            {% for contributor in  contributors %}
+            {{ contributor.id }} & {{ contributor.name }} & {{  contributor.work }} \\ \hline
+            {% endfor %}
+		\end{tabular}
+	\end{table}
+	\begin{table}[]
+		\caption {\heiti 版本变更历史} \label{tab:title}
+		\centering
+		\begin{tabular}{|l|p{2cm}|p{4cm}|l|p{5cm}|}
+			\hline
+			版本 & 提交日期 & 主要编制人 & 审核人 & 版本说明 \\ \hline
+            {% for record in  revisionLists %}
+            {{ record.version }} & {{ record.date }} & {{ record.author }} & {{ record.censor }} & {{ record.note }} \\ \hline
+            {% endfor %}
+		\end{tabular}
+	\end{table}
+	\clearpage
+}
