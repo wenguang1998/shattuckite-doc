@@ -14,6 +14,9 @@ add_custom_target(run ALL
     DEPENDS ${CMAKE_BINARY_DIR}/shattuckite-SDP.pdf
             ${CMAKE_BINARY_DIR}/shattuckite-PRD.pdf
             ${CMAKE_BINARY_DIR}/shattuckite-SDD.pdf
+            ${CMAKE_BINARY_DIR}/shattuckite-SDP-html
+            ${CMAKE_BINARY_DIR}/shattuckite-PRD-html
+            ${CMAKE_BINARY_DIR}/shattuckite-SDD-html
     )
 
 

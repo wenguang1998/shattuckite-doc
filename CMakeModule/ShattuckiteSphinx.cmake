@@ -40,6 +40,7 @@ function(ShattuckiteSphinxDoc aDocAbbr aDocIndex aSphinxRoot aOutDir )
     COMMAND cp -r  ./build/html  ${aOutDir}/${aDocAbbr}-html 
     WORKING_DIRECTORY ${aSphinxRoot}
     DEPENDS ${${aDocAbbr}_DEPENDENCIES}
+    MAIN_DEPENDENCY ${aOutDir}/${aDocAbbr}_BUILDINGFLAG
   )
 
 endfunction(ShattuckiteSphinxDoc)
