@@ -1,0 +1,10 @@
+推送服务器接口
+===============
+
+.. interfacedetail:: shattuckite-server-push Websocket
+
+上述接口暴露给 :component:`shattuckite-gui-viewmodel` , 用于服务器主动向客户端推送数据。
+
+接口使用Websocket协议进行通信, 传输二进制数据流，数据载荷使用json格式序列化。
+
+更多详细信息请参考接口组件。

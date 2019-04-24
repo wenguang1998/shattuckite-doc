@@ -1,3 +1,29 @@
 
 系统接口说明
 ****************
+
+系统接口目录
+################
+
+本节列出系统的接口目录
+
+嵌入式端接口
+
+.. interfacecontent:: 嵌入式终端
+
+服务端接口
+
+.. interfacecontent:: 服务端
+
+客户端接口
+
+.. interfacecontent:: 客户端  
+
+
+
+.. include:: embedded/index.rstinc
+
+.. include:: server/index.rstinc
+
+.. include:: client/index.rstinc
+

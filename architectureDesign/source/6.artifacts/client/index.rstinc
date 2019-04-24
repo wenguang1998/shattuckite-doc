@@ -1,0 +1,8 @@
+客户端组件
+==============
+
+.. include:: client/viewmodel.rstinc
+
+.. include:: client/browserview.rstinc
+
+.. include:: client/mobile.rstinc

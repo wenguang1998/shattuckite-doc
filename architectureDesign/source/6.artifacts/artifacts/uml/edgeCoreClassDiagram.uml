@@ -1,0 +1,71 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+ class shattuckiteCoreContext  {
+    
+     + any listDevices()
+ + any getSensorConfByID()
+ + any getDriverObject()
+}
+
+
+ class shattuckiteSensorLoop  {
+    - __mContext: shattuckiteCoreContext 
+     + any shattuckiteSensorLoop()
+ + any registerTaskBySensorConfig()
+ + any getTaskBySensorID()
+ + any cancelTaskBySensorID()
+}
+
+
+ class shattuckitePublisherLoop  {
+    - __mContext: shattuckiteCoreContext 
+     + any listenLocalRedis()
+ + any publishCommandECHO()
+ + any publishSensorData()
+}
+
+
+ class shattuckiteSubscriberLoop  {
+    - __mContext: shattuckiteCoreContext 
+     + any listenLocalTopic()
+ + any pubCMDToRedis()
+}
+
+
+ class shattuckiteCommandDispatcherLoop  {
+    - __mContext: shattuckiteCoreContext 
+- __mCommandList: shattuckiteCommand[] 
+     + any listCommandAvailable()
+ + any listenToLocalRedis()
+}
+
+
+abstract class shattuckiteAbstractCommand  {
+    - __mContext: shattuckiteCoreContext 
+    {abstract} + any run()
+}
+
+
+ class shattuckiteCommandSetActuatorState  {
+    
+     + any run()
+}
+
+
+ class shattuckiteCommandSetSensorConf  {
+    
+     + any run()
+}
+
+
+shattuckiteCoreContext "1" -- "1" shattuckiteSensorLoop 
+shattuckiteCoreContext "1" -- "1" shattuckitePublisherLoop 
+shattuckiteCoreContext "1" -- "1" shattuckiteSubscriberLoop 
+shattuckiteCoreContext "1" -- "1" shattuckiteCommandDispatcherLoop 
+shattuckiteCoreContext "1" -- "1" shattuckiteAbstractCommand 
+shattuckiteAbstractCommand  <|--  shattuckiteCommandSetActuatorState 
+shattuckiteAbstractCommand  <|--  shattuckiteCommandSetSensorConf 
+
+@enduml

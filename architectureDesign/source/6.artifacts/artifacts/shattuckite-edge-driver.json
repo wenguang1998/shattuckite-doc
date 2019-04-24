@@ -1,6 +1,5 @@
 {
     "name":"shattuckite-edge-driver",
-    "abstract":true,
     "verboseName":"边缘网络驱动",
     "language":["CXX"],
     "hardwareEnv":["Cortex-a9"],
@@ -12,6 +11,7 @@
         }
 
     ],
+    "abstract":true,
     "interface":[
         {
             "name":"getDevicesList",

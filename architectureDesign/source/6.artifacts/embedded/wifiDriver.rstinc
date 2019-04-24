@@ -1,0 +1,8 @@
+Wifi 驱动
+************
+
+该组件基本信息如下:
+
+.. componentdetail:: shattuckite-driver-wifi
+
+该组件用于将wifi节点的值映射为命名管道文件。 

@@ -1,0 +1,13 @@
+mqtt 代理接口
++++++++++++++++++
+
+
+.. interfacedetail:: shattuckite-mqtt-broker Pub
+
+.. interfacedetail:: shattuckite-mqtt-broker Sub
+
+上述两个接口实现mqtt数据中转。
+
+接口通过mqtt协议传输二进制数据流。数据载荷使用 ``json`` 格式进行序列化.
+
+具体的数据包格式可参考 :ref:`数据相关接口`
