@@ -5,7 +5,7 @@
 
 1. :ref:`Lora设备驱动(shattuckite-driver-lora)`
 2. :ref:`Wifi设备驱动(shattuckite-driver-wifi)`
-3. :ref:`嵌入式终端核心(shattuckite-core)`
+3. :ref:`嵌入式终端核心(shattuckite-edge-core)`
 4. 本地数据缓存(redis)
 
 设备驱动将与硬件(例如 ``Lora网关`` 或 ``Wifi`` 网卡) , 将传感器数据和执行器的状态映射为 ``Linux`` 文件。

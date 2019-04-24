@@ -1,6 +1,10 @@
 详细设计
 ------------
 
+.. todo:: Fix this
+
+.. todo:: Fix that
+
 
 META-详细设计
 ****************
@@ -11,3 +15,6 @@ META-详细设计
 
 .. META_END
 
+
+
+.. include:: ./edge-core.rstinc
