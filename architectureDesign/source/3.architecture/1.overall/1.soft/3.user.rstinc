@@ -7,6 +7,10 @@
 2. :ref:`浏览器视图(shattuckite-gui-browserview)`
 3. :ref:`移动端视图(shattuckite-gui-nativeview)`
 
+.. componentuml:: 客户端
+    :caption: 用户端UML组件图
+    :align: center 
+
 本项目使用 ``MVVM`` 架构模式实现人机交互接口。
 
 ``MVVM`` 中的 ``model`` 由两部分组成:

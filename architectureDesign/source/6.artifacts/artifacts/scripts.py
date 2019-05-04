@@ -30,7 +30,8 @@ if __name__ == "__main__":
     logger.debug("start parsing")
     generateUMLClass(jsobj,args.out)
 
-    
 
-    
+
+
+
 

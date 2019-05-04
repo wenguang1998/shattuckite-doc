@@ -9,6 +9,11 @@
 4.  :ref:`推送服务器(shattuckite-server-push)`
 5.  关系型数据库
 
+该部分UML组件图如下图所示
+
+.. componentuml:: 服务端
+    :caption: 服务端UML组件图
+    :align: center
 
 本项目使用 ``MQTT`` 协议完成M2M端到端通信。
 
