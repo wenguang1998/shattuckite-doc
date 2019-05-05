@@ -1,7 +1,0 @@
-嵌入式终端核心(shattuckite-edge-core)
-*******************************************
-
-.. uml:: artifacts/uml/edgeCoreClassDiagram.uml
-    :scale: 50%
-    :align: center
-    :caption: 嵌入式终端核心 UML 类图
