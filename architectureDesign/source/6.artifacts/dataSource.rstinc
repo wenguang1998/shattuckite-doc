@@ -4,3 +4,6 @@
 该组件基本信息如下:
 
 .. componentdetail:: dataSource 
+
+数据源负责调用各种硬件驱动, 包括 :ref:`LORA驱动` 和 :ref:`WIFI 驱动`来收集终端传感器数据和执行器状态，
+并订阅 :component:`redis` 提供的 :interface:`数据pub` ,将系统数据发布到本地Redis的数据Topic中。
