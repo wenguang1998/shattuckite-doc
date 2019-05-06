@@ -1,0 +1,6 @@
+嵌入式终端接口设计
+####################
+
+.. include:: embedded/redis.rstinc
+
+.. include:: embedded/pipe.rstinc

@@ -1,0 +1,18 @@
+嵌入式端组件详细设计
+=====================
+
+.. include:: embedded/redis.rstinc
+
+.. include:: embedded/dataSource.rstinc
+
+.. include:: embedded/loraDriver.rstinc
+
+.. include:: embedded/wifiDriver.rstinc
+
+.. include:: embedded/dataHandle.rstinc
+
+.. include:: embedded/subBridge.rstinc
+
+.. include:: embedded/evnetHandle.rstinc
+
+.. include:: embedded/shattuckiteRPC.rstinc

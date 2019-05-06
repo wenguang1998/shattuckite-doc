@@ -2,16 +2,17 @@
 ------------
 
 META-详细设计
-****************
+===============
 
 .. META_BEGIN
 
-本节主要阐述构件的详细设计。
+本节主要阐述系统组件的详细设计。
 
 .. META_END
 
+.. include:: embedded/index.rstinc 
 
-.. include:: redis.rstinc
+.. include:: server/index.rstinc
 
-.. include:: dataSource.rstinc
+.. include:: client/index.rstinc
 

@@ -1,0 +1,7 @@
+命名管道IPC接口
+++++++++++++++++
+
+
+.. interfacedetail:: shattuckite-lora-driver IPC-Pipe2
+
+.. interfacedetail:: shattuckite-driver-wifi IPC-Pipe1

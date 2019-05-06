@@ -19,8 +19,11 @@
 
 .. interfacecontent:: 客户端  
 
-系统接口详细设计
-#################
 
 
-.. todo:: 完成系统接口详细设计文档
+.. include:: embedded/index.rstinc
+
+.. include:: server/index.rstinc
+
+.. include:: client/index.rstinc
+
