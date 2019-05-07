@@ -2,3 +2,9 @@ Rest服务接口
 ++++++++++++++
 
 .. interfacedetail:: shattuckite-restful Http
+
+上述接口暴露给 :component:`shattuckite-gui-viewmodel` 。
+
+接口使用Http协议进行通信. 数据载荷使用json格式序列化。
+
+.. todo:: 插入Rest接口文档

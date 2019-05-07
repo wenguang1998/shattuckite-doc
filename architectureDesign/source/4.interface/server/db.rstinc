@@ -3,3 +3,8 @@
 
 .. interfacedetail:: mysql Socket 
 
+数据库接口由Mysql组件提供。通过该接口实现对数据库的数据的操作。
+
+:component:`shattuckite-data-pipe` 通过  alpakka 提供的Slick组件与数据库连接并执行SQL语句。
+
+:component:`shattuckite-restful` 通过 django-orm 提供的组件与数据库连接并执行SQL语句。
