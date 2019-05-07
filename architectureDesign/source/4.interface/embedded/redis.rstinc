@@ -2,7 +2,16 @@
 ++++++++++++++++++
 
 .. interfacedetail:: redis 命令Pub
+
 .. interfacedetail:: redis 命令Sub
+
+上述两个接口提供用于中转命令接口.
+
+这两个接口使用Redis Message传输字符串。字符串使用json格式进行序列化.
+
+关于命令的格式请参考
+
+.. todo:: 插入 shattuckite-rpc 交叉引用
 
 事件相关接口
 ++++++++++++++++++
@@ -10,11 +19,24 @@
 .. interfacedetail:: redis 事件Pub
 .. interfacedetail:: redis 事件Sub
 
+上述两个接口提供用于中转事件接口. 
+
+这两个接口使用Redis Message传输字符串。字符串使用json格式进行序列化.
+
+关于事件数据的格式请参考
+
+.. todo:: 插入 shattuckite-event 交叉引用
+
 数据相关接口
 ++++++++++++++
 
 .. interfacedetail:: redis 数据Pub
 .. interfacedetail:: redis 数据Sub
 
+上述两个接口提供用于中转数据接口.
 
+这两个接口使用Redis Message传输字符串。字符串使用json格式进行序列化.
 
+关于系统数据的格式请参考
+
+.. todo:: 插入数据包定义的交叉引用
