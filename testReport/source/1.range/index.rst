@@ -1,8 +1,9 @@
 范围
--------------------
+---------
 
-.. include:: ./systemIntro.rstinc
-.. include:: ./docIntro.rstinc
-.. include:: ./acronym.rstinc
-.. include:: ./cite.rstinc
-.. include:: ./methology.rstinc
+.. include:: ./1.intro.rstinc
+
+.. include:: ./4.cite.rstinc
+
+.. include:: ./3.term.rstinc
+
