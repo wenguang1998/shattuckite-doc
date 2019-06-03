@@ -42,10 +42,13 @@
 + Shattuckite-Embedded-Node 数据处理组件
 + Shattuckite-Lora-Driver 嵌入式端Lora驱动
 + Mosquitto MQTT测试服务器
-    + tcp 协议监听地址: ali.cnworkshop.xyz:20000
-    + websocket 协议监听地址: ali.cnworkshop.xyz:20010
+
+    + tcp 协议地址: ali.cnworkshop.xyz:20000
+    + websocket 协议地址: ali.cnworkshop.xyz:20010
+
 + Redis 分布式KV存储测试服务器: 地址ali.cnworkshop.xyz:20001
 + Mysql 关系型数据库测试服务器: 地址ali.cnworkshop.xyz:5005
+
     + 测试数据库名: Shattuckite
     + 测试用户名: Shattuckite-Django 
 

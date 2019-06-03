@@ -1,11 +1,210 @@
 [
     {
-        "name":"name",
-        "requirements":[""],
-        "prerequisite":[],
-        "input":[],
-        "output":[],
-        "standard":[],
-        "process":[]
+        "name": "测试列出系统事件接口默认行为",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "接口路由"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该返回所有的系统事件。",
+            "比对测试数据库内事件数与接口返回的事件数,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出特定事件范围内的系统事件",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ Datetime_before: 以URLQuery形式传递的事件上界。采用ISO8601格式的时间字符串",
+            "+ Datetime_after: 以URLQuery形式传递的事件下界。采用ISO8601格式的时间字符串"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": ["接口应该返回传入时间范围内的系统事件。",
+            "比对测试数据库内满足条件的事件数与接口返回的事件数,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出特定状态的系统事件",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ Status: 以URLQuery形式传递的事件类型。为事件的参数",
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": ["接口应该返回满足传入状态系统事件。",
+            "比对测试数据库内满足条件的事件数与接口返回的事件数,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试系统事件处理接口",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ id: 硬编码进路由URL的数字, 表示待处理事件的系统ID"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该能正确的转换被操作事件的状态。",
+            "调用该接口后，查看预设待操作事件的状态。",
+            "如果预设事件的状态由待处理转换为已处理，则测试通过。"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出传感器接口 ",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该返回系统中所有的传感器。",
+            "比对预设的传感器数量与接口返回的传感器数,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出传感器阈值设定端口默认行为",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ id: 硬编码进路由URL的数字, 表示待设置阈值的传感器的系统ID",
+            "+ threshold: 通过post body传递的参数。表示即将设置的阈值,为一个浮点数格式。"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该能正确的设定传感器的报警阈值。",
+            "调用该接口后，查看预设待设置阈值传感器的阈值。",
+            "如果预设传感器的报警阈值和接口调用参数设置的值一致，则测试通过。"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出传感器阈值设定端口异常处理",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ id: 硬编码进路由URL的数字, 表示待设置阈值的传感器的系统ID",
+            "+ threshold: 通过post body传递的参数。表示即将设置的阈值。在本测试用例中取异常格式。(取空及字符串)"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该能正确检测到传入参数的格式错误",
+            "调用该接口后，查看预设待设置阈值传感器的阈值。",
+            "如果预设传感器的报警阈值仍为未设置状态，且接口的返回代码为200，则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试按照时间范围列出传感器的数据 ",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ begin: 通过URLQuery传递的参数，表示时间范围上界, 采用Unix 时间戳作为格式",
+            "+ end: 通过URLQuery传递的参数，表示时间范围下界, 采用Unix 时间戳作为格式",
+            "+ sensorID: 通过URLQuery传递的参数, 表示待查看数据的传感器, 字符串格式"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该返回系统中符合输入参数约束的所有传感器数据。",
+            "比对预设的传感器数据与接口返回的传感器数据数量,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出特定传感器的数据 ",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ sensorID: 通过URLQuery传递的参数, 表示待查看数据的传感器, 字符串格式"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该在缺少时间边界参数时返回正确的错误代码。",
+            "获取接口返回的状态代码，如果为400，则测试通过。"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试列出传感器数据接口无ID输入时的行为 ",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ begin: 通过URLQuery传递的参数，表示时间范围上界, 采用Unix 时间戳作为格式",
+            "+ end: 通过URLQuery传递的参数，表示时间范围下界, 采用Unix 时间戳作为格式",
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该在缺少传感器ID参数时返回正确的错误代码。",
+            "获取接口返回的状态代码，如果为400，则测试通过。"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试获取实时传感器数据接口",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ sensorID: 通过URLQuery传递的参数, 表示待查看数据的传感器, 字符串格式"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该返回接口调用时刻前60秒内的数据。",
+            "比对预设的传感器数据与接口返回的传感器数据数量,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试获取实时传感器数据接口调整时间窗口功能",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由",
+            "+ sensorID: 通过URLQuery传递的参数, 表示待查看数据的传感器, 字符串格式",
+            "+ seconds: 通过URLQuery传递的参数, 表示要查看的数据窗口大小，以秒为单位的数字"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该返回接口调用时刻前若干秒内的数据。时间窗口由输入参数设置。",
+            "比对预设的传感器数据与接口返回的传感器数据数量,",
+            "如果相等则测试通过"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
+    },
+    {
+        "name": "测试实时数据获取接口在缺少必要参数时的行为 ",
+        "requirements": [],
+        "prerequisite": "RESTFUL_TEST_PRE",
+        "input": [
+            "+ 接口路由"
+        ],
+        "output": "RESTFUL_TEST_OUTPUT",
+        "standard": [
+            "接口应该在缺少参数时返回正确的错误代码。",
+            "获取接口返回的状态代码，如果为400，则测试通过。"
+        ],
+        "process": "UNITTES_DEFAULT_PROCESS"
     }
+
 ]
