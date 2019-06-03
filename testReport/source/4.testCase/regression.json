@@ -2,9 +2,9 @@
     {
     	"name":"测试概览系统情况",
         "codeName":"TestSystemOverview",
-        "cases":["概览系统情况",],
+        "cases":["概览系统情况"],
         "prerequisite":[
-        	"Shattuckite 中台前端页面",
+        	"Shattuckite 中台前端页面"
         ],
         "input":["用户点击"],
         "output":["前端界面正常显示"],
@@ -25,7 +25,7 @@
         "prerequisite":[
         	"Shattuckite 后台前端页面",
         	"Shattuckite 中台前端页面",
-        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-RESTful 服务器"
    		],
         "input":["用户点击，选择时间范围、事件状态"],
         "output":["界面正确显示所选时间范围内的未处理事件列表，点击处理按钮，事件状态改变为‘已处理’"],
@@ -43,7 +43,7 @@
     {
     	"name":"测试查看传感器数据",
         "codeName":"TestSenatorData",
-        "cases":["查看传感器数据",],
+        "cases":["查看传感器数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -64,7 +64,7 @@
     {
     	"name":"测试实时监控数据",
         "codeName":"TestRealtimeData",
-        "cases":["实时监控数据",],
+        "cases":["实时监控数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -91,7 +91,7 @@
     {
     	"name":"测试历史监控数据",
         "codeName":"TestHistoryData",
-        "cases":["历史监控数据",],
+        "cases":["历史监控数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -121,7 +121,7 @@
     {
     	"name":"测试查看历史事件",
         "codeName":"TestHistoryEvents",
-        "cases":["查看历史事件",],
+        "cases":["查看历史事件"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器"
@@ -157,7 +157,7 @@
         "process":[
         "1. 点击‘传感器设置’按钮，界面正常显示\n",
         "2. 查看列表数据，对比后台数据\n",
-        "3. 点击‘编辑报警阈值’按钮，输入报警阈值，对比后台数据\n"
+        "3. 点击‘编辑报警阈值’按钮，输入报警阈值，对比后台数据\n",
         "4. 进入后台页面，界面正常显示\n",
     	"5. 添加传感器，刷新前端界面，查看界面信息\n"]
     },
@@ -188,8 +188,7 @@
         "3. 点击执行器‘Toggle’按钮，观察执行器动作\n",
     	"4. 进入后台页面，界面正常显示\n",
     	"5. 添加执行器，刷新前端界面，查看界面信息\n"]
-    }
-
+    },
     {
     	"name":"测试触发报警事件",
         "codeName":"TestAlarm",

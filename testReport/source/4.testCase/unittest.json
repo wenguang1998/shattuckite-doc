@@ -1,7 +1,7 @@
 [
     {
         "name": "测试列出系统事件接口默认行为",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "接口路由"
@@ -16,7 +16,7 @@
     },
     {
         "name": "测试列出特定事件范围内的系统事件",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -32,7 +32,7 @@
     },
     {
         "name": "测试列出特定状态的系统事件",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -47,7 +47,7 @@
     },
     {
         "name": "测试系统事件处理接口",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -63,7 +63,7 @@
     },
     {
         "name": "测试列出传感器接口 ",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由"
@@ -78,7 +78,7 @@
     },
     {
         "name": "测试列出传感器阈值设定端口默认行为",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -95,7 +95,7 @@
     },
     {
         "name": "测试列出传感器阈值设定端口异常处理",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -112,7 +112,7 @@
     },
     {
         "name": "测试按照时间范围列出传感器的数据 ",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -130,7 +130,7 @@
     },
     {
         "name": "测试列出特定传感器的数据 ",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -145,7 +145,7 @@
     },
     {
         "name": "测试列出传感器数据接口无ID输入时的行为 ",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -161,7 +161,7 @@
     },
     {
         "name": "测试获取实时传感器数据接口",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -177,7 +177,7 @@
     },
     {
         "name": "测试获取实时传感器数据接口调整时间窗口功能",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
@@ -194,7 +194,7 @@
     },
     {
         "name": "测试实时数据获取接口在缺少必要参数时的行为 ",
-        "requirements": [],
+        "cases": [],
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由"
