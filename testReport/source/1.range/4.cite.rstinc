@@ -1,0 +1,8 @@
+引用
+******
+
+.. bibliography:: ../ref.bib
+   :enumtype: upperroman
+   :start: 1
+   :cited:
+   :all:
