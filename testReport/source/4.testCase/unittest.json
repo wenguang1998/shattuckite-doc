@@ -36,7 +36,7 @@
         "prerequisite": "RESTFUL_TEST_PRE",
         "input": [
             "+ 接口路由",
-            "+ Status: 以URLQuery形式传递的事件类型。为事件的参数",
+            "+ Status: 以URLQuery形式传递的事件类型。为事件的参数"
         ],
         "output": "RESTFUL_TEST_OUTPUT",
         "standard": ["接口应该返回满足传入状态系统事件。",
@@ -150,7 +150,7 @@
         "input": [
             "+ 接口路由",
             "+ begin: 通过URLQuery传递的参数，表示时间范围上界, 采用Unix 时间戳作为格式",
-            "+ end: 通过URLQuery传递的参数，表示时间范围下界, 采用Unix 时间戳作为格式",
+            "+ end: 通过URLQuery传递的参数，表示时间范围下界, 采用Unix 时间戳作为格式"
         ],
         "output": "RESTFUL_TEST_OUTPUT",
         "standard": [
