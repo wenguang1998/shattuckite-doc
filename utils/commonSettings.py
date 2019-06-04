@@ -1,3 +1,7 @@
+import sys,os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append('/home/curry/Project/grossular/grossular-sphinx')
+
 
 needs_sphinx = '1.8'
 source_suffix = '.rst'
@@ -14,6 +18,7 @@ master_doc = 'index'
 pygments_style = None
 html_theme = 'sphinx_rtd_theme'
 todo_include_todos = True
+grossular_project='shattuckite'
 
 extensions = [
     'sphinx.ext.todo',
@@ -23,11 +28,14 @@ extensions = [
     'sphinx.ext.graphviz',
     'sphinx.ext.autosectionlabel',
     'sphinxcontrib.bibtex',
+    'grossularsphinx.usecase',
+    'grossularsphinx.component',
 ]
 
 latex_elements = {
     'papersize': 'a4paper',
     'fncychap': '',
+    'figure_align': 'H',
     'extraclassoptions': 'openany,oneside',
     'maketitle': r'''\shattuckitemaketitle
 \newpage

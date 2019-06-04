@@ -1,0 +1,8 @@
+Lora 驱动
+**********
+
+该组件基本信息如下:
+
+.. componentdetail:: shattuckite-lora-driver
+
+该组件用于将Lora节点的值映射为命名管道文件。 

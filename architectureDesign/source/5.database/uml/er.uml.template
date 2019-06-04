@@ -1,0 +1,16 @@
+@startuml
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+!define pk(x) <b><color:red>x</color></b>
+!define unique(x) <color:green>x</color>
+!define fk(x) <b>x</b>
+!define not_null(x) <u>x</u>
+
+hide methods
+hide stereotypes
+
+{entity}
+
+{relationship}
+
+
+@enduml

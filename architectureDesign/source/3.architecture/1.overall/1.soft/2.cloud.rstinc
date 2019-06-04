@@ -1,14 +1,15 @@
 服务器端软件架构
 +++++++++++++++++++++
 
-``服务端软件`` 由以下构件组成
+服务端软件由以下组件组成
 
-1.  :ref:`MQTT协议代理(shattuckite-mqtt-broker)`
-2.  :ref:`数据管道(shattuckite-data-pipe)`
-3.  :ref:`RESTful服务器(shattuckite-restful)`
-4.  :ref:`推送服务器(shattuckite-server-push)`
-5.  关系型数据库
+.. componentcontent:: 服务端
 
+该部分UML组件图如下图所示
+
+.. componentuml:: 服务端
+    :caption: 服务端UML组件图
+    :align: center
 
 本项目使用 ``MQTT`` 协议完成M2M端到端通信。
 
@@ -28,14 +29,18 @@
 1. 将数据持久化到关系型数据库
 2. 作为 ``Broker2`` 的发布者, 将命令回显数据发布到相关 ``Topic`` 以实现 ``Server Push``
 
-关于数据流的扇入，扇出，多路复用等细节，将在  :ref:`数据管道(shattuckite-data-pipe)`  一节中详细讨论.
+关于数据流的扇入，扇出，多路复用等细节，将在数据管道一节中详细讨论.
 
-TODO:partial case: 传感器数据持久化时序图
+.. TODO:: 插入交叉引用
 
-TODO:partial case: 命令数据处理回显
+.. TODO:: partial case: 传感器数据持久化时序图
+
+.. TODO:: partial case: 命令数据处理回显
 
 ``shattuckite-RESTful`` 主要提供 ``用户端`` 与 ``服务器`` 端交互的接口。接口工作在 ``Http(s)`` 上。本构件将提供 ``Immutable(不可变)`` 和 ``mutable(可变)`` 两种类型的接口。
-关于更多细节请参考 :ref:`RESTful服务器(shattuckite-restful)` 一节。
+关于更多细节请参考RESTful服务器一节。
+
+.. TODO:: 插入交叉引用
 
 当用户端调用不可变接口时(例如查询传感器历史数据), 该构件将通过持有的数据库连接器, 执行相应的查询指令从关系型数据库中获得数据，并将查询结果序列化后返回给客户端。
 
@@ -43,14 +48,9 @@ TODO:partial case: 命令数据处理回显
 它类似于异步编程模型中 ``Future`` 对象, 我们称其为 ``partial response``。
 ``partial response`` 中包含了关于如何获得真正响应的 ``metainfo(元信息)``, 用户将根据元信息中的内容，订阅 ``Broker2`` 中特定的 ``Topic`` 并最终从消息队列获取真正的回显。
 
-TODO:content: 加入动机交叉引用
+.. TODO:: content: 加入动机交叉引用
+.. TODO:: partial case: 用户访问历史数据
+.. TODO:: partial case: 用户控制执行器
+.. TODO:: partial case: 用户改变传感器配置
 
-TODO:partial case: 用户访问历史数据
-
-TODO:partial case: 用户控制执行器
-
-TODO:partial case: 用户改变传感器配置
-
-关于服务端关系型数据库的使用, 请参考:ref:`数据库设计`一节, 此处不过多赘述。
-
-TODO:uml: 加入该构件的详细构件图
+关于服务端关系型数据库的设计, 请参考 :ref:`数据库设计` 一节, 此处不过多赘述。

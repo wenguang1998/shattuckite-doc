@@ -1,0 +1,29 @@
+数据分发处理
+***************
+
+该组件基本信息如下:
+
+.. componentdetail:: dataHandle
+
+该组件从 :interface:`数据Sub` 订阅系统中的数据，并完成两项工作
+
+1. 将系统数据发布到 :interface:`Pub`
+2. 根据系统数据生成系统事件, 并将事件数据发布到 :interface:`Pub` 和 :interface:`事件Pub`
+
+系统数据
++++++++++++
+
+参见 :interface:`数据Sub` , 该组件将从Redis服务器中, 获得按照json格式序列化的数据。将一个数据包反序列化后, 得到的数据包结构大概如下
+
+
+.. code-block:: json
+
+    {
+    type:"actuator"
+
+
+    }
+
+
+
+

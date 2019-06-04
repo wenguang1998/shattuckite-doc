@@ -1,0 +1,22 @@
+命名管道IPC接口
+++++++++++++++++
+
+
+.. interfacedetail:: shattuckite-lora-driver IPC-Pipe2
+
+.. interfacedetail:: shattuckite-driver-wifi IPC-Pipe1
+
+上述两个接口由驱动程序提供，用于向其他组件提供访问硬件的支持。
+
+.. todo:: 添加 fifo bibetex
+
+接口使用由Linux系统提供的 fifo 进行数据通信。每一个IPC-Pipe接口会建立两个命名管道,
+其中一个管道用于驱动下发硬件数据,另一个管道用于驱动接收操作硬件的指令.
+
+命名管道传输二进制数据流。信道使用行标记进行帧同步，数据包之间用字节 ``\r\n`` 分割。
+数据包使用简单的键值对进行序列化。
+
+关于驱动IPC-Pipe接口的更多详细信息，请参考
+
+.. todo:: 插入IPC-Pipe实现参考
+
