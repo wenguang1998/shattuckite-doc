@@ -1,3 +1,4 @@
+
 import sys
 sys.path.append('../../')
 import re
@@ -7,12 +8,11 @@ from utils.commonSettings import *
 import os
 from utils.getVersionInfo import GetReleaseInfo, GetVersionInfo
 
-project = '设计文档'
+project = '测试报告'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
-docIndexStr = "003"
-docAbbr = "SDD"
-htmlhelp_basename = 'shattuckitedoc'
+docIndexStr = "004"
+docAbbr = "STR"
 
 version = GetVersionInfo(docAbbr)
 release = GetReleaseInfo(docAbbr)
