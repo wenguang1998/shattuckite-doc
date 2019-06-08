@@ -22,6 +22,7 @@
     RESTful          Representational State Transfer 
     MVVM             Model–View–ViewModel
     QOS              Quality of service
+    UML              UNIFIED MODELING LANGUAGE 
     ============= ===================================================================
 
 
@@ -81,4 +82,12 @@ Model–View–ViewModel Pattern
 本项目将使用 ``MVVM`` 架构构建用户界面。
 
 更多信息请参考 :cite:`Anderson2012`
+
+UML
+++++++++++++++++
+
+统一建模语言，本文档将以 UML 2.5.1 为标准。
+
+更多信息请参考 :cite:`UML251`
+
 

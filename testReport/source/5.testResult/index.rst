@@ -8,3 +8,5 @@
 
 回归测试结果
 ===============
+
+.. include:: ./regressionTestResult.gen.rstinc

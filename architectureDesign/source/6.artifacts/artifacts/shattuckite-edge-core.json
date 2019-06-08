@@ -99,6 +99,8 @@
                     "accessibility":"private",
                     "type":"shattuckiteCoreContext",
                     "UMLRelation":"association",
+                    "UMLLabelEnd":"1",
+                    "UMLLabelBegin":"1",
                     "breif":"关联上下文对象对以获得操作Redis的能力"
                 }
             ]
@@ -125,7 +127,9 @@
             "member":[ {"name":"__mContext",
                     "accessibility":"private",
                     "type":"shattuckiteCoreContext",
-                    "UMLRelation":"Association",
+                    "UMLRelation":"association",
+                    "UMLLabelEnd":"1",
+                    "UMLLabelBegin":"1",
                     "breif":"关联上下文对象对以获得从Redis消息队列订阅消息的能力"
                 }
             ]
@@ -145,7 +149,9 @@
             "member":[ {"name":"__mContext",
                     "accessibility":"private",
                     "type":"shattuckiteCoreContext",
-                    "UMLRelation":"Association",
+                    "UMLRelation":"association",
+                    "UMLLabelEnd":"1",
+                    "UMLLabelBegin":"1",
                     "brief":"关联上下文对象以订阅redis消息队列"
                 }
             ]
@@ -163,7 +169,9 @@
             "member":[ {"name":"__mContext",
                     "accessibility":"private",
                     "type":"shattuckiteCoreContext",
-                    "UMLRelation":"association"
+                    "UMLRelation":"association",
+                    "UMLLabelEnd":"1",
+                    "UMLLabelBegin":"1"
                 },{"name":"__mCommandList",
                     "accessibility":"private",
                     "type":"shattuckiteCommand[]",
@@ -175,13 +183,15 @@
             "abstract":true,
             "method":[
                 {"name":"run",
-                    "abstract":"true"
+                    "abstract":true
                 }
             ],
             "member":[ {"name":"__mContext",
                     "accessibility":"private",
                     "type":"shattuckiteCoreContext",
-                    "UMLRelation":"Association"
+                    "UMLRelation":"association",
+                    "UMLLabelEnd":"1",
+                    "UMLLabelBegin":"1"
                 }
             ]
         },
@@ -190,14 +200,14 @@
                 {"name":"run",
                     "override":true}
             ],
-            "generalization":["shattuckiteAbstractCommand"]
+            "extension":["shattuckiteAbstractCommand"]
         },
         {"name":"shattuckiteCommandSetSensorConf",
             "method":[
                 {"name":"run",
                     "override":true}
             ],
-            "generalization":["shattuckiteAbstractCommand"]
+            "extension":["shattuckiteAbstractCommand"]
         }
     ]
 }

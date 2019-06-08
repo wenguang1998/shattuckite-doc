@@ -12,11 +12,14 @@ META-数据库设计
 .. META_END
 
 
-
-
 数据表设计
 *************
+
+.. include:: classify.table.rstinc
 
 
 ER图建模
 *************
+
+.. uml:: ./uml/er.uml
+    :caption: 关系型数据库ER图
