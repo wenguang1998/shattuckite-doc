@@ -1,0 +1,93 @@
+术语及缩略词
+****************
+
+缩写及相应全称
+###################
+
+.. table:: 缩写及相应全称
+
+    ============= ===================================================================
+    缩写            全称
+    ============= ===================================================================
+    Lora             Long Range
+    IOT              Internet Of Things
+    NB-IOT           Narror-Band IOT
+    REST             Representational State Transfer
+    RPC              Remote Procedure Call 
+    RS232            Recommended Standard 232
+    USART            Universal Synchronous/Asynchronous Receiver/Transmitter
+    M2M              Machine to Machine
+    C/S              Client/Server Pattern
+    MQTT             Message Queuing Telemetry Transport
+    RESTful          Representational State Transfer 
+    MVVM             Model–View–ViewModel
+    QOS              Quality of service
+    UML              UNIFIED MODELING LANGUAGE 
+    ============= ===================================================================
+
+
+术语消歧
+################
+
+本节列出本文档中使用到,并可能出现歧义术语，对这些术语做简要的解释并列出参考资料，以期消除歧义。
+
+
+Publish–Subscribe Pattern
++++++++++++++++++++++++++++++++++++++++
+
+一种软件架构模型,中文名可能是 ``代理模式`` 或是 ``订阅者-发布者模型`` 。
+
+本文档中亦可能将这种模型称为 ``Broker Pattern``
+
+与该模型相关的术语包括 ``Broker``, ``Publisher(发布者)``, ``Subscriber(订阅者)`` ,``Topic``
+
+更多信息请参考 :cite:`1987:birman`。
+
+Pipe-filter Pattern
++++++++++++++++++++++
+
+一种软件架构模型，中文名可能是 ``管道或过滤器模型``。
+
+与该模型相关的术语包括 ``Source (数据源)``, ``Sink(数据汇)``, ``filter(数据过滤器)``
+
+本文档中，为了兼容:ref:`akka-stream` 规范 ``Filter`` 与 ``Flow`` 同义
+
+更多信息请参考 :cite:`Shaw:1995`
+
+
+Client-Server Pattern
+++++++++++++++++++++++++++++++
+
+一种软件架构模型，中文名可能是 ``服务器/客户端模型``。
+
+与该模型相关的术语 ``Client(客户端)``  ``Server(服务器)``.
+
+更多信息请参考 :cite:`Benatallah:2004`
+
+RESTful 
++++++++++++++
+
+一种软件架构模型，定义了一系列创建Web服务时的规范。
+
+更多信息请参考 :cite:`RESTFUL:2014`
+
+Model–View–ViewModel Pattern
++++++++++++++++++++++++++++++++++
+
+一种软件架构模型。可能没有中译名，国内常使用其简写 ``MVVM``
+
+和 ``MVVM` 有关的术语包括 ``Data Binding`` , ``View`` , ``ViewModel``, 及 ``Model``。本文档中将使用两种具体的 ``Data Binding``, 包括
+``Properiies(属性)`` 和  `` Event Callbacks(事件回调)``
+
+本项目将使用 ``MVVM`` 架构构建用户界面。
+
+更多信息请参考 :cite:`Anderson2012`
+
+UML
+++++++++++++++++
+
+统一建模语言，本文档将以 UML 2.5.1 为标准。
+
+更多信息请参考 :cite:`UML251`
+
+

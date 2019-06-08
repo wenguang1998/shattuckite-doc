@@ -1,0 +1,10 @@
+数据源
+********
+
+该组件基本信息如下:
+
+.. componentdetail:: dataSource 
+
+数据源负责调用各种硬件驱动, 包括 :component:`shattuckite-lora-driver` 和 :component:`shattuckite-driver-wifi` 来收集终端传感器数据和执行器状态，
+并订阅 :component:`redis` 提供的 :interface:`数据Pub` ,将系统数据发布到本地Redis的数据Topic中。
+

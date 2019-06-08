@@ -1,0 +1,134 @@
+人机交互接口
+*****************
+
+
+.. import os
+.. for i in (os.listdir('./ui-prototype')):
+..         if ".jpeg" in i:
+..                 baseName=i.split('.')[0]
+..                 print(".. figure:: ui-prototype/"+i)
+..                 print("\t:align: center")
+..                 print()
+..                 print("\t页面-"+baseName)
+..                 print().         print("\t :caption:页面:"+baseName)
+..     
+
+.. figure:: ui-prototype/alterpassword.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-alterpassword
+
+.. figure:: ui-prototype/alterpassword_error.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-alterpassword_error
+
+.. figure:: ui-prototype/historyevent.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-historyevent
+
+.. figure:: ui-prototype/historyevent_detail.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-historyevent_detail
+
+.. figure:: ui-prototype/home.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-home
+
+.. figure:: ui-prototype/login.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-login
+
+.. figure:: ui-prototype/login_passworderror.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-login_passworderror
+
+.. figure:: ui-prototype/login_servererror.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-login_servererror
+
+.. figure:: ui-prototype/manage.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-manage
+
+.. figure:: ui-prototype/managedevice.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-managedevice
+
+.. figure:: ui-prototype/managedevice_detail.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-managedevice_detail
+
+.. figure:: ui-prototype/manageevent.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-manageevent
+
+.. figure:: ui-prototype/manageevent_detail.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-manageevent_detail
+
+.. figure:: ui-prototype/monitordata.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-monitordata
+
+.. figure:: ui-prototype/monitordata_history.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-monitordata_history
+
+.. figure:: ui-prototype/monitordata_present.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-monitordata_present
+
+.. figure:: ui-prototype/operate.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-operate
+
+.. figure:: ui-prototype/operatedevice_detail.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-operatedevice_detail
+
+.. figure:: ui-prototype/todo.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-todo
+
+.. figure:: ui-prototype/userinfo.jpeg
+        :align: center
+        :scale: 50%
+
+        页面-userinfo
