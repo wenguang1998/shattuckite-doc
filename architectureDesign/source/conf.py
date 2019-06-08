@@ -43,4 +43,4 @@ latex_elements['preamble'] = GetTexMaketitle(
     documentTitle=project, docAbbr=docAbbr, contributors=contributors)
 
 latex_documents = [(master_doc, 'shattuckite-{docAbbr}.tex'.format(docAbbr=docAbbr),
-                    'shattuckite {title}'.format(title=project), 'SHADOC-{docIndexStr},SDP,第五组'.format(docIndexStr=docIndexStr), 'howto'), ]
+                    'shattuckite {title}'.format(title=project), 'SHADOC-{docIndexStr},SDD,第五组'.format(docIndexStr=docIndexStr), 'howto'), ]
