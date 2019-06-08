@@ -1,6 +1,6 @@
 IndexAbbrMapping= {
     'SDP':'001',
-    'PRD':'002',
+    'SRS':'002',
     'SDD':'003',
     'STR':'004',
 }

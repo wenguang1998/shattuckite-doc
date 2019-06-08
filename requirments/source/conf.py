@@ -12,7 +12,7 @@ project = '需求文档'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
 docIndexStr = "002"
-docAbbr = "PRD"
+docAbbr = "SRS"
 htmlhelp_basename = 'shattuckitedoc'
 
 version = GetVersionInfo(docAbbr)
@@ -49,4 +49,4 @@ latex_elements['preamble'] = GetTexMaketitle(
     documentTitle=project, docAbbr=docAbbr, contributors=contributors)
 
 latex_documents = [(master_doc, 'shattuckite-{docAbbr}.tex'.format(docAbbr=docAbbr),
-                    'shattuckite {title}'.format(title=project), 'SHADOC-{docIndexStr},SDP,第五组'.format(docIndexStr=docIndexStr), 'howto'), ]
+                    'shattuckite {title}'.format(title=project), 'SHADOC-{docIndexStr},SRS,第五组'.format(docIndexStr=docIndexStr), 'howto'), ]
