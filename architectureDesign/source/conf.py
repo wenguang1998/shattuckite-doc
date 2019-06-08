@@ -1,17 +1,17 @@
 import sys
 sys.path.append('../../')
-from utils.getVersionInfo import GetReleaseInfo, GetVersionInfo
-import os
-from utils.commonSettings import *
-from utils.getTexSettings import GetTexMaketitle
-import requests
 import re
+import requests
+from utils.getTexSettings import GetTexMaketitle
+from utils.commonSettings import *
+import os
+from utils.getVersionInfo import GetReleaseInfo, GetVersionInfo
 
-project = '项目计划书'
+project = '设计文档'
 copyright = '2019, CNLHC'
 author = 'CNLHC'
-docIndexStr = "001"
-docAbbr = "SDP"
+docIndexStr = "003"
+docAbbr = "SDD"
 htmlhelp_basename = 'shattuckitedoc'
 
 version = GetVersionInfo(docAbbr)
@@ -21,7 +21,21 @@ contributors = [
     {
         'id': '16231275',
         'name': '刘瀚骋',
-        'work': '内容编写/内容审核/绘图/自动化工具编写'
+        # 'work': ''
+    },
+    {
+        'id': '16061053',
+        'name': '孟巧岚',
+    },
+    {
+        'id': '16061069',
+        'name': '许文广',
+    }, {
+        'id': "16061044",
+        'name': '张起铭',
+    }, {
+        'id': "16061136",
+        'name': "邓健",
     }
 ]
 

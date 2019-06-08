@@ -1,0 +1,16 @@
+@startuml
+start
+floating note left:概览系统情况
+:普通用户;
+:查看监控数据;
+if(返回主页面？)then(是)
+:返回主页面;
+else(否)
+split
+:当前监控数据;
+split again
+:历史监控数据;
+end split
+endif
+stop
+@enduml

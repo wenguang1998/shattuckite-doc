@@ -1,0 +1,16 @@
+术语和缩略词
+##############
+
+.. table:: 缩写及相应全称
+
+    ============= ===================================================================
+    缩写            全称
+    ============= ===================================================================
+    Lora             Long Range
+    IOT              Internet Of Things
+    NB-IOT           Narror-Band IOT
+    REST             Representational State Transfer
+    RPC              Remote Procedure Call 
+    RS232             Recommended Standard 232
+    USART            Universal Synchronous/Asynchronous Receiver/Transmitter
+    ============= ===================================================================

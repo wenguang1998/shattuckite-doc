@@ -1,0 +1,19 @@
+嵌入式终端软件架构
++++++++++++++++++++
+
+嵌入式终端软件由以下组件组成
+
+.. componentcontent:: 嵌入式终端  
+
+该部分UML组件图如下图所示
+
+.. componentuml:: 嵌入式终端
+    :caption: 嵌入式终端UML组件图
+    :align: center
+
+设备驱动将与硬件(例如Lora网关或Wifi网卡)通信 , 并把传感器数据和执行器的状态映射为Linux文件。
+
+rpc执行器可通过文件读操作获取传感器数据与执行器的状态; 终端核心可通过写操作设置执行器的状态。关于通过文件IPC的更多详情请参考 :ref:`系统接口说明`
+
+:component:`dataSource` 将通过由驱动提供的IPC接口获取传感器数据和执行器状态,并将他们Publish到 :component:`redis` 提供的数据Pub接口中. 
+
