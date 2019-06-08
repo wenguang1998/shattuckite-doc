@@ -2,9 +2,9 @@
     {
     	"name":"测试概览系统情况",
         "codeName":"TestSystemOverview",
-        "cases":["概览系统情况",],
+        "cases":["概览系统情况"],
         "prerequisite":[
-        	"Shattuckite 中台前端页面",
+        	"Shattuckite 中台前端页面"
         ],
         "input":["用户点击"],
         "output":["前端界面正常显示"],
@@ -25,7 +25,7 @@
         "prerequisite":[
         	"Shattuckite 后台前端页面",
         	"Shattuckite 中台前端页面",
-        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-RESTful 服务器"
    		],
         "input":["用户点击，选择时间范围、事件状态"],
         "output":["界面正确显示所选时间范围内的未处理事件列表，点击处理按钮，事件状态改变为‘已处理’"],
@@ -43,7 +43,7 @@
     {
     	"name":"测试查看传感器数据",
         "codeName":"TestSenatorData",
-        "cases":["查看传感器数据",],
+        "cases":["查看传感器数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -64,7 +64,7 @@
     {
     	"name":"测试实时监控数据",
         "codeName":"TestRealtimeData",
-        "cases":["实时监控数据",],
+        "cases":["实时监控数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -86,12 +86,37 @@
 	        "3. 点击其他任一‘添加监视’按钮，折线图展示数据\n",
 	        "4. 查看列表中数据，对比后台数据\n",
 	        "5. 点击任一‘移除监视’按钮，折线图不再展示相应数据\n"]
+	},
+
+	{
+    	"name":"测试实时监控数据_2",
+        "codeName":"TestRealtimeData_2",
+        "cases":["实时监控数据"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Wifi温度传感器",
+        	"Wifi压力传感器"
+        ],
+        "input":["添加传感器监控，突然切断传感器电源"],
+        "output":["系统正常工作，折线图中不再有新的数据展示"],
+        "standard":["界面能够正常显示\n",
+        	"系统正常工作，切断电源后图中不再有新的数据显示\n"],
+        "process":[
+	        "1. 点击‘实时数据’按钮，界面正常显示\n",
+	        "2. 点击任一‘添加监视’按钮，折线图展示数据\n",
+	        "3. 切断相应传感器电源\n",
+	        "4. 观察折线图的变化\n"]
     },
 
     {
     	"name":"测试历史监控数据",
         "codeName":"TestHistoryData",
-        "cases":["历史监控数据",],
+        "cases":["历史监控数据"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器",
@@ -121,7 +146,7 @@
     {
     	"name":"测试查看历史事件",
         "codeName":"TestHistoryEvents",
-        "cases":["查看历史事件",],
+        "cases":["查看历史事件"],
         "prerequisite":[
         	"Shattuckite 中台前端页面",
         	"Shattuckite-RESTful 服务器"
@@ -157,7 +182,7 @@
         "process":[
         "1. 点击‘传感器设置’按钮，界面正常显示\n",
         "2. 查看列表数据，对比后台数据\n",
-        "3. 点击‘编辑报警阈值’按钮，输入报警阈值，对比后台数据\n"
+        "3. 点击‘编辑报警阈值’按钮，输入报警阈值，对比后台数据\n",
         "4. 进入后台页面，界面正常显示\n",
     	"5. 添加传感器，刷新前端界面，查看界面信息\n"]
     },
@@ -188,7 +213,30 @@
         "3. 点击执行器‘Toggle’按钮，观察执行器动作\n",
     	"4. 进入后台页面，界面正常显示\n",
     	"5. 添加执行器，刷新前端界面，查看界面信息\n"]
-    }
+	},
+	
+	{
+    	"name":"测试执行器_2",
+        "codeName":"TestActuator_2",
+        "cases":["操作执行器"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 控制节点",
+        	"Lora 报警节点",
+        	"Lora 网关"
+   		],
+        "input":["以1次/s的频率执行继电器的动作"],
+        "output":["从第一次点击后开始，约每三秒继电器完成一次动作"],
+        "standard":["每一次点击，继电器能够正常及时的反应"],
+        "process":[
+        "1. 点击‘执行器列表’按钮，界面正常显示\n",
+        "2. 点击继电器执行器的‘Toggle’按钮，观察继电器动作\n"]
+    },
 
     {
     	"name":"测试触发报警事件",
@@ -206,12 +254,236 @@
         	"Lora 网关"
    		],
         "input":["物体触发Wifi入侵检测传感器"],
-        "output":["前端界面弹出报警，报警指示灯亮"],
-        "standard":["前端界面弹出报警，报警指示灯亮"],
+        "output":["前端界面弹出报警，报警器报警"],
+        "standard":["前端界面弹出报警，报警器报警"],
         "process":[
         "1. 将卡片插入Wifi入侵检测传感器\n",
         "2. 查看前端界面变化\n",
         "3. 观察报警器动作\n"]
-    }
+	},
+
+	{
+    	"name":"测试触发报警事件_2",
+        "codeName":"TestAlarm_2",
+        "cases":["触发报警事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+        "input":["物体触发Wifi入侵检测传感器，并以1次/s的频率，持续10s"],
+        "output":["第一次触发，报警器报警，前端界面弹出报警；接下来的三次，前端界面没有弹出报警；接下来的第五次，第九次前端界面弹出报警"],
+        "standard":["每一次触发，前端界面弹出报警，报警器报警"],
+        "process":[
+		"1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 反复执行触发动作\n",
+        "3. 查看前端界面变化\n",
+        "4. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件",
+        "codeName":"TestAlarmAndHandle",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+        "input":["物体触发Wifi入侵检测传感器，在前端界面弹窗中点击处理事件"],
+        "output":[
+			"前端界面中报警弹窗关闭，报警器2-3s后停止报警；\n",
+			"‘历史事件’中出现新的事件，状态为已处理"
+		],
+        "standard":["报警器及时关闭，事件被记录并且状态为‘已处理’"],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 点击前端界面报警弹窗的‘处理事件’按钮\n",
+		"4. 点击前端界面‘历史事件’，查看是否存在事件的记录\n",
+        "5. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件_2",
+        "codeName":"TestAlarmAndHandle_2",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+        "input":["物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；在前端‘历史事件’界面中处理事件"],
+		"output":[
+			"前端界面中报警弹窗关闭，报警器报警器持续；\n",
+			"‘历史事件’中出现新的事件，状态为‘未处理’；\n",
+			"点击相应事件的‘处理事件’按钮，报警器停止报警"
+		],
+        "standard":["报警器持续报警，事件被记录并且状态为‘未处理’；可以通过处理来关闭报警器"],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 观察报警器动作\n",
+		"4. 直接关闭前端界面报警弹窗\n",
+		"5. 等待数秒，观察报警器动作\n",
+		"6. 点击前端界面‘历史事件’，查看是否存在事件的记录\n",
+		"7. 在‘历史事件’中，点击对应事件的‘处理事件’按钮\n",
+        "8. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件_3",
+        "codeName":"TestAlarmAndHandle_3",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+        "input":["物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；在前端‘执行器列表’界面中点击报警器‘toggle’按钮"],
+		"output":[
+			"前端界面中报警弹窗关闭，报警器报警器持续；\n",
+			"点击报警器的‘toggle’按钮，报警器停止报警"
+		],
+        "standard":["事件发生后报警器持续报警；能够通过执行器的‘toggle’关闭报警器"],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 观察报警器动作\n",
+		"4. 直接关闭前端界面报警弹窗\n",
+		"5. 等待数秒，观察报警器动作\n",
+		"6. 点击前端界面‘执行器列表’，点击报警器‘toggle’按钮\n",
+        "7. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件_4",
+        "codeName":"TestAlarmAndHandle_4",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+		"input":[
+			"物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；\n",
+			"物体触发Wifi入侵检测传感器，点击前端界面报警弹窗中的‘处理事件’按钮；\n"
+		],
+		"output":[
+			"\n",
+			""
+		],
+        "standard":[""],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 观察报警器动作\n",
+		"4. 直接关闭前端界面报警弹窗\n",
+		"5. 等待数秒，观察报警器动作\n",
+		"6. 将卡片插入Wifi入侵检测传感器\n",
+		"7. 点击前端界面报警弹窗的‘处理事件’按钮\n",
+        "8. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件_5",
+        "codeName":"TestAlarmAndHandle_5",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+		"input":[
+			"物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；\n",
+			"物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；\n",
+			"在前端‘历史事件’界面中处理最新事件\n"
+		],
+		"output":[
+			"\n",
+			""
+		],
+        "standard":[""],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 观察报警器动作\n",
+		"4. 直接关闭前端界面报警弹窗\n",
+		"5. 重复一次以上步骤\n",
+		"7. 点击前端界面‘历史事件’，处理最新事件\n",
+        "8. 观察报警器动作\n"]
+	},
+
+	{
+    	"name":"测试处理报警事件_6",
+        "codeName":"TestAlarmAndHandle_6",
+        "cases":["触发报警事件", "处理未处理事件"],
+        "prerequisite":[
+        	"Shattuckite 中台前端页面",
+        	"Shattuckite-RESTful 服务器",
+        	"Shattuckite-Embedded-Node 数据处理组件",
+        	"Shattuckite-Lora-Driver 嵌入式端Lora驱动",
+        	"Mosquitto MQTT测试服务器",
+        	"嵌入式终端节点: Cortex-A9 架构 Altera Cyclone V SOC",
+        	"Lora 报警节点",
+        	"Wifi入侵检测传感器",
+        	"Lora 网关"
+   		],
+		"input":[
+			"物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；\n",
+			"物体触发Wifi入侵检测传感器，直接关闭前端界面报警弹窗；\n",
+			"在前端‘执行器列表’界面中触发报警器动作\n"
+		],
+		"output":[
+			"\n",
+			""
+		],
+        "standard":[""],
+        "process":[
+        "1. 将卡片插入Wifi入侵检测传感器\n",
+		"2. 查看前端界面变化\n",
+		"3. 观察报警器动作\n",
+		"4. 直接关闭前端界面报警弹窗\n",
+		"5. 重复一次以上步骤\n",
+		"7. 点击前端界面‘执行器列表’，点击报警器的‘toggle’按钮\n",
+        "8. 观察报警器动作\n"]
+	}
+
 ]
 
