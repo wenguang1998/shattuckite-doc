@@ -9,8 +9,7 @@
 
 给出本系统的用例图
 
-.. uml:: ./userOriented/uml/example.uml
-    :caption: 系统用例图
+.. usecaseuml::
 
 
 本节为何不额外编写新的内容请参见 :ref:`不重复原则`
