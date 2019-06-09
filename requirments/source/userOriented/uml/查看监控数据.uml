@@ -7,9 +7,11 @@ if(返回主页面？)then(是)
 :返回主页面;
 else(否)
 split
-:当前监控数据;
+:查看实时监控数据;
+detach
 split again
-:历史监控数据;
+:查看历史监控数据;
+detach
 end split
 endif
 stop

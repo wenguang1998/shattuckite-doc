@@ -2,18 +2,16 @@
 start
 floating note left:概览系统情况
 :普通用户;
-if (返回主页面？) then (是)
-:返回主页面;
+:操作执行器;
+if (返回[概览系统情况]页面？) then (是)
+:返回[概览系统情况]页面;
 else (否)
-:显示系统中所有执行器;
-split
-:按区域划分;
-split again
-:按类型划分;
-end split
+:显示系统中所有执行器
+可过滤执行器;
 :点击执行器;
 :选择相关操作
-操控远程执行器;
+远程操控执行器;
+detach
 endif
 stop
 @enduml

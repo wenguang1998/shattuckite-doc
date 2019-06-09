@@ -1,0 +1,14 @@
+@startuml
+start
+floating note left:管理传感器
+:普通用户;
+:设置传感器报警逻辑;
+:传感器数据报警逻辑;
+split
+:数据发生变化;
+split again
+:数据达到某个范围;
+end split
+:设置完成;
+stop
+@enduml

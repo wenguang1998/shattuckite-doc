@@ -3,37 +3,30 @@ start
 floating note left:查看用户信息
 :普通用户;
 :修改账号密码;
-if(返回至用户信息页面？)then(是)
-:返回至用户信息页面;
+if(返回至[用户信息]页面？)then(是)
+:返回至[用户信息]页面;
+stop
 else(否)
 :用户修改自己的密码;
 if(网络错误？)then(是)
-:分类报错;
-split
-:修改失败;
-split again
-:服务器未响应;
-split again
-:使用文字提示
-   网络错误;
-end split
+:报错;
+:修改失败
+服务器未响应
+文字提示网络错误;
+stop
 else(否)
 :输入现有密码;
 if(密码错误？)then(是)
-:分类报错;
-split
-:修改失败;
-split again
-:密码错误;
-split again
-:使用文字提示
-   密码错误;
-end split
+:报错;
+:修改失败
+密码错误
+文字提示密码错误;
+stop
 else(否)
 :输入修改密码;
 :返回登陆界面;
+detach
 endif
 endif
 endif
-stop
 @enduml

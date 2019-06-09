@@ -1,38 +1,33 @@
 @startuml
 start
 :普通用户;
-:登陆控制程序;
 :从终端访问控制程序;
+:登陆控制程序;
 if(网络错误？)then(是)
-:分类报错;
-split
-:无法登陆;
-split again
-:服务器未响应;
-split again
-:使用文字提示
-   网络错误;
-end split
+    :报错;
+    :无法登陆
+    服务器未响应
+    文字提示网络错误;
+    stop
 else(否)
-:弹出登陆页面;
-if(用户曾经保存过账号或密码？)then(是)
-else(否)
-:输入账号和密码;
-if(登陆信息有误？)then(是)
-:分类报错;
-split
-:无法登陆;
-split again
-:账号或密码错误;
-split again
-:使用文字提示
-登陆信息错误;
-end split
-else(否)
+    :弹出登陆页面;
+    if(用户曾经保存过账号或密码？)then(是)
+        :进行鉴权;
+        :跳转到控制程序主页面;
+        detach
+    else(否)
+        :输入账号和密码;
+        if(登陆信息有误？)then(是)
+            :报错;
+            :无法登陆
+            账号或密码错误
+            文字提示登陆信息错误;
+            stop
+        else(否)
+        :进行鉴权;
+        :跳转到控制程序主页面;
+        detach
+        endif
+    endif
 endif
-endif
-:进行鉴权;
-:跳转到控制程序主页面;
-endif
-stop
 @enduml

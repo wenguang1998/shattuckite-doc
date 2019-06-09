@@ -3,26 +3,24 @@ start
 floating note left:概览系统情况
 :普通用户;
 :查看历史事件;
-floating note left:用户已在历史事件页面
+floating note left:历史事件页面
 if(返回主页面？)then(是)
 :返回主页面;
+stop
 else(否)
 if(出错？)then(是)
-:分类报错;
-split
-:获取失败;
-split again
-:服务器未响应;
-split again
-:使用文字提示网络错误;
-endsplit
+:报错;
+
+:获取失败
+服务器未响应
+文字提示网络错误;
+stop
 else(否)
 :显示历史监控数据
 ====
 事件时间，事件描述，事件处理用户;
 :选择删除历史事件数据;
+detach
 endif
 endif
-
-stop
 @enduml

@@ -5,48 +5,34 @@ floating note left:概览系统情况
 :查看用户信息;
 if(返回主页面？)then(是)
 :返回主页面;
+stop
 else(否)
 if(获取信息出错？)then(是)
-:分类报错;
-split
-:获取失败;
-split again
-:服务器未响应;
-split again
-:使用文字提示
-   网络错误;
-end split
+:报错;
+:获取失败
+服务器未响应
+文字提示网络错误;
+stop
 else(否)
+:获取当前系统的用户信息;
 split
-:获取当前系统的用户信息
-====
-当前账户的帐号/密码
-当前系统其他用户的帐号;
-split again
+:当前账户的帐号/密码;
 :编辑用户信息;
 split
-:编辑当前用户信息
-====
-修改密码/注销账户;
+:修改密码;
+detach
 split again
-:反馈意见与建议;
+:注销账户;
+detach
 split again
 :注销登陆;
+:返回登陆页面;
+detach
 end split
-if(修改信息出错？)then(是)
-:分类报错;
-split
-:修改失败;
 split again
-:服务器未响应;
-split again
-:使用文字提示
-   网络错误;
-end split
-else(否)
-endif
+:当前系统其他用户的帐号;
+detach
 end split
 endif
 endif
-stop
 @enduml

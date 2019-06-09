@@ -20,8 +20,12 @@ with open('./case.json','r',encoding = 'utf-8')as f:
     for j in json_list:
         if j['prerequisites'] != []:
             for i in j['prerequisites']:
-                exam.write("("+j['name']+")"+"--|>"+"("+i+")\n")
+                exam.write("("+i+")"+"-->"+"("+j['name']+")\n")
         else:
-            exam.write("user"+"->"+"("+j['name']+")"+"\n")
+            if(j['user']==["普通用户"]):
+                exam.write("user"+"-->"+"("+j['name']+")"+"\n")
+            else:
+                for i in j['user']:
+                    exam.write(":"+i+":"+"-->"+"("+j['name']+")\n")
     exam.write("@enduml\n")
     exam.close()

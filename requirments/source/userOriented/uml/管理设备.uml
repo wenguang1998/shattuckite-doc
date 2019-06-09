@@ -7,13 +7,8 @@ if(返回至主页面？)then(是)
 :返回至主页面;
 else(否)
 :选择操作类型;
-split
-:管理事件;
-split again
 :管理传感器;
-split again
-:管理执行器;
-end split
+detach
 endif
 stop
 @enduml

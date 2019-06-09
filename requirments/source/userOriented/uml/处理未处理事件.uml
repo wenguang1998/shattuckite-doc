@@ -4,38 +4,31 @@ floating note left:概览系统情况
 :普通用户;
 :处理未处理事件;
 if(网络错误？)then(是)
-:分类报错;
-split
-:处理失败;
-split again
-:服务器未响应;
-split again
-:使用文字提示
-   网络错误;
-end split
+:报错;
+:处理失败
+服务器未响应
+使用文字提示网络错误;
+stop
 else(否)
 split
 :页面显示未处理事件;
 :  用户处理事件
 可将事件设置为已处理;
 if(文件之前已处理？)then(是)
-:分类报错;
-split
-:处理失败;
-split again
-:事件已处理;
-split again
-:使用文字提示
-  事件已处理;
-end split
+:报错;
+:处理失败
+事件已处理
+使用文字提示事件已处理;
+stop
 else(否)
 :处理后的事件不再出现在主页面上;
 :控制程序记录处理人账号和处理时间;
+detach
 endif
 split again
 :点击[历史事件];
 :显示已处理事件及其处理信息;
+detach
 end split
 endif
-stop
 @enduml

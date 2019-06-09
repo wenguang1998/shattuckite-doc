@@ -5,35 +5,38 @@ floating note left:登陆控制程序
 :概览系统情况
 ====
 控制程序主页面;
-if(出错？)then(是)
-:分类报错;
-split
-:无法登陆;
-split again
-:服务器未响应;
-split again
-:使用文字提示
-   密码错误;
-end split
+if(网络问题？)then(是)
+:报错;
+:无法登陆
+服务器未响应
+文字提示密码错误;
 else(否)
 split
-:浏览主页面获取
-当前系统的运行状况
-====
-系统的工作状态
-当前未处理事件;
+:当前系统的运行状况;
+split
+:系统的工作状态;
+detach
+split again
+:当前未处理报警;
+detach
+end split
 split again
 :导航到其他页面;
 split
 :监控数据;
+detach
 split again
 :历史事件;
+detach
 split again
 :管理设备;
+detach
 split again
 :操作执行器;
+detach
 split again
 :用户详情;
+detach
 end split
 end split
 endif

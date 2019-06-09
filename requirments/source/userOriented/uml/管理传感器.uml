@@ -6,14 +6,11 @@ floating note left:管理设备
 if(返回至[管理设备]页面？)then(是)
 :返回至[管理设备]页面;
 else(否)
-:呈现系统中的所有传感器;
-split
-:按所在区域划分;
-split again
-:按类型划分;
-end split
-:勾选一台或多台传感器
-进行管理;
+:呈现系统中的所有传感器
+可过滤传感器;
+:勾选一台传感器
+进行进一步设置;
+detach
 endif
 stop
 @enduml
