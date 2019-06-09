@@ -18,6 +18,7 @@ master_doc = 'index'
 pygments_style = None
 html_theme = 'sphinx_rtd_theme'
 todo_include_todos = True
+grossular_server='http://ali.cnworkshop.xyz:3000'
 grossular_project='shattuckite'
 
 extensions = [

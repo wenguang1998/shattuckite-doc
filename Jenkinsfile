@@ -19,9 +19,12 @@ pipeline {
         '''
       }
     }
-    // stage('DeployToGIT') {
-    // }
-
+    stage('DeployToGIT') {
+      steps{
+        sh 'chmod a+x ./deployTools/deployToGit.sh'
+        sh './deployTools/deployToGit.sh'
+      }
+    }
     stage('DeployToWebServer') {
       steps{
         sh 'chmod a+x ./deployTools/deployToServer.sh'
